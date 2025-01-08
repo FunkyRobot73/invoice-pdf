@@ -32,6 +32,9 @@
       <div class="col-md-2">
         <input class="form-control" [(ngModel)]="newCity" placeholder="Burlington">
       </div>
+      <div class="col-md-2">
+        <input class="form-control" [(ngModel)]="newCost" placeholder="350">
+      </div>
       <div class="col-md-12">
         <input class="form-control" [(ngModel)]="newNote" placeholder="Just a Note...">
       </div>
@@ -59,6 +62,7 @@
            <td>{{customer.date}}</td> 
            <td>{{customer.phone}}</td> 
            <td>{{customer.address}}</td>
+           <td>{{customer.cost}}</td>
           <button class="btn btn-danger" (click)="deleteCustomer(i)">DELETE</button>
           <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button>
       

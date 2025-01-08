@@ -29,6 +29,7 @@ export class AppComponent implements OnInit {
   newCity: string = "Burlington";
   newNote: string = "Photo Booth needs Table near Power Outlet"
   newService: string = "3-Hour Photo Booth (Gold Package) from 9pm to Midnight";
+  newCost: number = 350;
 
   dataService = inject(DataService)
   title = 'simple-invoice';
@@ -51,7 +52,8 @@ export class AppComponent implements OnInit {
         address: this.newAddress,
         city: this.newCity,
         note: this.newNote,
-        service: this.newService
+        service: this.newService,
+        cost: this.newCost
       }
 
       this.customers.push(newCustomer);
@@ -104,7 +106,7 @@ export class AppComponent implements OnInit {
     doc.setFontSize(12);
     let invoice = this.customers[x].custId.toString();
     doc.text(`# ${invoice.slice(0,7)}`, 150, 30);
-    doc.text(`DATE: ${this.customers[x].date}`,150, 36);
+    doc.text(`${this.customers[x].date}`,150, 36);
     doc.text(`${this.customers[x].fName}`, 10, 40);
     doc.text(`${this.customers[x].lName}`, 10, 46);
     doc.text(`${this.customers[x].address}`, 10, 52);
@@ -115,6 +117,7 @@ export class AppComponent implements OnInit {
     doc.setFont('helvectica');
     
     doc.text(`Services`, 10, 69);
+    doc.text(`Amount`, 165, 69);
     doc.setFontSize(12);
     doc.setFont('courier');
     doc.text(`${this.customers[x].service}`, 10, 79);
@@ -122,6 +125,12 @@ export class AppComponent implements OnInit {
     doc.line(10, 73, 200, 73) //startx,STARTy,endx,ENDy
     doc.text(`NOTES: ${this.customers[x].note}`, 20, 240);
 
+    doc.line(10, 234, 200, 234) //startx,STARTy,endx,ENDy
+    doc.line(10, 235, 200, 235) //startx,STARTy,endx,ENDy
+    doc.line(10, 244, 200, 244) //startx,STARTy,endx,ENDy
+    doc.line(10, 245, 200, 245) //startx,STARTy,endx,ENDy
+    doc.text(`TOTAL $ ${this.customers[x].cost}`, 165, 228);
+    doc.text(`Rate  $ ${this.customers[x].cost}`, 165, 79);
 
     doc.save(fileName2 + "-INV-" + this.customers[x].custId + '.pdf');
   }
