@@ -11,8 +11,10 @@ table {
     border-collapse: collapse;
   }
   table td, table th {
-    border: 1px solid #AAAAAA;
+    /* border: 1px solid #AAAAAA; */
     padding: 3px 2px;
+    margin: 3px;
+    
   }
   table tbody td {
     font-size: 13px;
