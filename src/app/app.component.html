@@ -7,29 +7,29 @@
   <div class="card mt-3 p-3">
     <div class="row">
       <div class="col">
-        <h2 class="text-center">Create New Appoinment</h2>
+        <h2 class="text-center">Create New Customer/Invoice</h2>
       </div>
     </div>
     <div class="row mt-3">
       <div class="col-md-6">
-        <input class="form-control" [(ngModel)]="newAppointmentTitle" placeholder="Appointment Type">
+        <input class="form-control" [(ngModel)]="newfName" placeholder="First Name">
       </div>
       <div class="col-md-4">
-        <input class="today" [(ngModel)]="newAppointmentDate" type="date" placeholder="Appointment Date">
+        <input class="today" [(ngModel)]="newlName" type="date" placeholder="Appointment Date">
       </div>
       <div class="col-md-2">
-        <button class="btn btn-primary" (click)="addAppointment()">ADD</button>
+        <button class="btn btn-primary" (click)="addCustomer()">ADD</button>
         </div>
     </div>
   </div>
   <ul class="list-group mt-3">
-      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let appointment of appointments; index as i">
+      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let customer of customers; index as i">
           
          
               
                 
-                {{appointment.id}} || {{appointment.title}} || {{appointment.date}}
-          <button class="btn btn-danger" (click)="deleteAppointment(i)">DELETE</button>
+                {{customer.fName}} || {{customer.lName}} || {{customer.custId}}
+          <button class="btn btn-danger" (click)="deleteCustomer(i)">DELETE</button>
             
       </li>
   </ul>

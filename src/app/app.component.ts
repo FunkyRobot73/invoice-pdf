@@ -1,21 +1,57 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, NgModule, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { jsPDF } from 'jspdf' ;
 import { DataService } from './data.service';
+import { Customer } from './models/customer';
+import { FormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule, NgFor],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
+
+  // newAppointmentTitle : any = "";
+  newfName : any = "";
+  // newAppointmentDate : Date = new Date();
+  newlName : any = "";
+  // appointments: Appointment[] = [];
+  customers: Customer[] = [];
+
   dataService = inject(DataService)
   title = 'simple-invoice';
   date  : Date = new Date();
   logo = "images/funky.webp"
+  
   ngOnInit(): void {
     
+  }
+
+  addCustomer() {
+    if(this.newfName.trim().length && this.newlName){
+      let newCustomer: Customer = {
+        custId:Date.now(),
+        fName: this.newfName,
+        lName: this.newlName
+      }
+
+      this.customers.push(newCustomer);
+
+      this.newfName = "";
+      this.newlName = new Date();
+
+      // alert(this.customers.length);
+      localStorage.setItem("customers", JSON.stringify(this.customers))
+    }
+  }
+
+  deleteCustomer(index: number) {
+    this.customers.splice(index,1)
+    localStorage.setItem("customers", JSON.stringify(this.customers))
   }
 
   generatePDF(buttonElement: any) {
