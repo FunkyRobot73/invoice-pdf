@@ -20,7 +20,10 @@ export class AppComponent implements OnInit {
   // newAppointmentDate : Date = new Date();
   newlName : any = "";
   // appointments: Appointment[] = [];
+  newEmail : any ="";
+  newDate: Date = new Date();
   customers: Customer[] = [];
+  newPhone: string = "";
 
   dataService = inject(DataService)
   title = 'simple-invoice';
@@ -36,13 +39,16 @@ export class AppComponent implements OnInit {
       let newCustomer: Customer = {
         custId:Date.now(),
         fName: this.newfName,
-        lName: this.newlName
+        lName: this.newlName,
+        email:this.newEmail,
+        date: this.newDate,
+        phone: this.newPhone
       }
 
       this.customers.push(newCustomer);
 
-      this.newfName = "";
-      this.newlName = new Date();
+      this.newfName = "Sample";
+      this.newlName = "Sousa";
 
       // alert(this.customers.length);
       localStorage.setItem("customers", JSON.stringify(this.customers))
@@ -65,8 +71,8 @@ export class AppComponent implements OnInit {
     doc.setFontSize(24);
     doc.text(`INVOICE`, 150, 18);
     doc.setFontSize(12);
-    doc.text(`${this.dataService.funkyData.date}`, 160, 36);
-    doc.text(`# ${this.dataService.funkyData.invoiceId}`, 160, 30);
+    doc.text(`# ${this.customers[0].custId}`, 160, 30);
+    doc.text(`${this.customers[0].fName}`, 160, 36);
 
 
     doc.save(fileName + "-" + this.date.getTime() + '.pdf');
