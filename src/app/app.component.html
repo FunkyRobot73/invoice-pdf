@@ -12,7 +12,7 @@
     </div>
     <div class="row mt-3">
       <div class="col-md-2">
-        <input class="form-control" [(ngModel)]="newfName" placeholder="First Name">
+        <input class="form-control" [(ngModel)]="newfName" placeholder="First Name" type="text" value="{{dataService.funkyData.myname}}">
       </div>
       <div class="col-md-2">
         <input class="form-control" [(ngModel)]="newlName" placeholder="Last Name">
@@ -27,21 +27,39 @@
         <input class="form-control" [(ngModel)]="newPhone" placeholder="(416) 832-3546">
       </div>
       <div class="col-md-2">
+        <input class="form-control" [(ngModel)]="newAddress" placeholder="800 Elms St.">
+      </div>
+      <div class="col-md-2">
+        <input class="form-control" [(ngModel)]="newCity" placeholder="Burlington">
+      </div>
+      <div class="col-md-2">
         <button class="btn btn-primary" (click)="addCustomer()">ADD</button>
         </div>
     </div>
   </div>
-  <ul class="list-group mt-3">
-      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let customer of customers; index as i">
+  <!-- TABLE -->
+  <table>
+    <ul class="list-group mt-3">
+      <tr>
+        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let customer of customers; index as i">
           
          
               
                 
-                {{customer.fName}} || {{customer.lName}} || {{customer.custId}} || {{customer.email}} || {{customer.date}} || {{customer.phone}}
+           <td>{{customer.fName}}</td> 
+           <td>{{customer.lName}} </td>  
+           <td>{{customer.custId}}</td>  
+           <td>{{customer.email}}</td> 
+           <td>{{customer.date}}</td> 
+           <td>{{customer.phone}}</td> 
+           <td>{{customer.address}}</td>
           <button class="btn btn-danger" (click)="deleteCustomer(i)">DELETE</button>
-            
-      </li>
+          <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button>
+      
+</li>
+      </tr>
   </ul>
+  </table>
 </div>
 
 
@@ -51,5 +69,5 @@
 
 <div class="container">
   <button (click)="generatePDF($event.target)" class="btn btn-primary m-5">Invoice</button>
-  <button (click)="generatePDF($event.target)" class="btn btn-primary m-5">Generate Fart</button>
+  <!-- <button (click)="generatePDF2($event.target)" class="btn btn-primary m-5">Fart</button> -->
 </div>
