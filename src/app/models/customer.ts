@@ -11,9 +11,9 @@ export interface Customer {
         city:string,
         // province:string,
         // postal:string,
-        // note:string,
+        note:string,
         // message: string,
-        // service:string,
+        service:string,
         // cost: number,
       
 
