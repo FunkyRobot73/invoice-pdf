@@ -47,29 +47,32 @@
     </div>
   </div>
   <!-- TABLE -->
-  <table>
-    <ul class="list-group mt-3">
-      <tr>
-        <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let customer of customers; index as i">
-          
-         
-              
+  
+  <div class="container card mt-2">
+    <table class="mt-2 mb-2">
+      <ul class="list-group mt-3">
+        <tr>
+          <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let customer of customers; index as i">
+            
+           
                 
-           <td>{{customer.fName}}</td> 
-           <td>{{customer.lName}} </td>  
-           <td>{{customer.custId}}</td>  
-           <td>{{customer.email}}</td> 
-           <td>{{customer.date}}</td> 
-           <td>{{customer.phone}}</td> 
-           <td>{{customer.address}}</td>
-           <td>{{customer.cost}}</td>
-          <button class="btn btn-danger" (click)="deleteCustomer(i)">DELETE</button>
-          <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button>
-      
-</li>
-      </tr>
-  </ul>
-  </table>
+                  
+             <td>{{customer.fName}}</td> 
+             <td>{{customer.lName}} </td>  
+             <td>{{customer.custId}}</td>  
+             <td>{{customer.email}}</td> 
+             <td>{{customer.date}}</td> 
+             <td>{{customer.phone}}</td> 
+             <td>{{customer.address}}</td>
+             <td>{{customer.cost}}</td>
+            <button class="btn btn-danger" (click)="deleteCustomer(i)">DELETE</button>
+            <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button>
+        
+  </li>
+        </tr>
+    </ul>
+    </table>
+  </div>
 </div>
 
 
