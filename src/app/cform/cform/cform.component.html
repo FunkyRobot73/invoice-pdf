@@ -2,42 +2,83 @@
     <div class="card mt-3 p-3 bg-card">
       <div class="row">
         <div class="col bg-card">
-          <h2 class="text-center">Create New FORM</h2>
+          <h2 class="text-center">Create Photo Booth Quote</h2>
         </div>
       </div>
       <div class="row mt-3 bg-card">
-        <div class="col-md-2">
-          <input class="form-control" [(ngModel)]="packagePB" placeholder="First Name" type="text" value="{{dataService.funkyData.myname}}">
+        <div class="col-md-2"><label>Hours Needed?</label>
+          <input class="form-control" [(ngModel)]="newPBHour" placeholder="Min. 2 & Max.8 Hours..." type="number" value="">
         </div>
-        <!-- <div class="col-md-2">
-          <input class="form-control" [(ngModel)]="newlName" placeholder="Last Name">
+        <div class="col-md-2"><label>Props?</label>
+          <input class="form-control" [(ngModel)]="newPBProp" placeholder="Last Name">
         </div>
-        <div class="col-md-2">
-          <input class="form-control" [(ngModel)]="newDate" type="date" placeholder="Appointment Date">
+        <div class="col-md-2"><label>Backdrop?</label>
+          <input class="form-control" [(ngModel)]="newPBBackdrop" placeholder="Appointment Date">
         </div>
-        <div class="col-md-2">
-          <input class="form-control" [(ngModel)]="newEmail" placeholder="carlos@funkyrobot.ca">
+        <div class="col-md-2"><label>Prints or Digital?</label>
+          <input class="form-control" [(ngModel)]="newPBPrint" placeholder="carlos@funkyrobot.ca">
         </div>
-        <div class="col-md-2">
-          <input class="form-control" [(ngModel)]="newPhone" placeholder="(416) 832-3546">
+        <div class="col-md-2"><label>Single/Double/PPP ?</label>
+          <input class="form-control" [(ngModel)]="newPBSet" placeholder="(416) 832-3546">
         </div>
-        <div class="col-md-2">
-          <input class="form-control" [(ngModel)]="newAddress" placeholder="800 Elms St.">
+        <div class="col-md-2"><label>Layout?</label>
+          <input class="form-control" [(ngModel)]="newPBLayout" placeholder="800 Elms St.">
         </div>
-        <div class="col-md-2">
-          <input class="form-control" [(ngModel)]="newCity" placeholder="Burlington">
+        <div class="col-md-2"><label>USB Stick?</label>
+          <input class="form-control" [(ngModel)]="newPBUSB" placeholder="Burlington">
         </div>
-        <div class="col-md-2">
-          <input class="form-control" [(ngModel)]="newCost" placeholder="350">
+        <div class="col-md-2"><label>1-Year Online Hosting</label>
+          <input class="form-control" [(ngModel)]="newPBHost" placeholder="350">
         </div>
-        <div class="col-md-12">
-          <input class="form-control" [(ngModel)]="newNote" placeholder="Just a Note...">
+        <div class="col-md-12"><label>Instant Email?</label>
+          <input class="form-control" [(ngModel)]="newPBEmail" placeholder="Just a Note...">
         </div>
-        <div class="col-md-12">
-          <input class="form-control" [(ngModel)]="newService" placeholder="Package Details">
-        </div> -->
+        <div class="col-md-12"><label>Guest Book?</label>
+          <input class="form-control" [(ngModel)]="newPBBook" placeholder="Package Details">
+        </div>
+        <div class="col-md-12"><label>Green Screen?</label>
+          <input class="form-control" [(ngModel)]="newPBGreen" placeholder="Package Details">
+        </div>
+        <div class="col-md-12"><label>Color or B/W Print?</label>
+          <input class="form-control" [(ngModel)]="newPBColor" placeholder="Package Details">
+        </div>
         <div class="col-md-2">
           <button class="btn btn-primary" (click)="addQuote()">ADD</button>
           </div>
       </div>
     </div>
+
+    <!-- TABLE -->
+     
+    <div class="container card mt-2">
+      <table class="mt-2 mb-2">
+        <ul class="list-group mt-3">
+          <tr>
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let quote of quotesPB; index as i">
+              
+             
+                  
+                    
+               <!-- <td>{{customer.fName}}</td>  -->
+               <td>{{quote.pbHour}}</td>
+               <td>{{quote.pbProp}}</td>
+               <td>{{quote.pbBackdrop}}</td>
+               <td>{{quote.pbPrint}}</td>
+               <td>{{quote.pbSet}}</td>
+               <td>{{quote.pbLayout}}</td>
+               <td>{{quote.pbUSB}}</td>
+               <td>{{quote.pbHost}}</td>
+               <td>{{quote.pbEmail}}</td>
+               <td>{{quote.pbBook}}</td>
+               <td>{{quote.pbGreen}}</td>
+               <td>{{quote.pbColor}}</td>
+              <button class="btn btn-danger" (click)="deleteQuote(i)">DELETE</button>
+              <!-- <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button> -->
+          
+    </li>
+          </tr>
+      </ul>
+      </table>
+    </div>
+
+    
