@@ -5,12 +5,12 @@ import { DataService } from '../../data.service';
 import { Customer } from '../../models/customer';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
-import { CformComponent } from "../../cform/cform/cform.component";
+
 
 
 @Component({
   selector: 'app-quote',
-  imports: [RouterOutlet, FormsModule, NgFor, CformComponent],
+  imports: [RouterOutlet, FormsModule, NgFor],
   templateUrl: './quote.component.html',
   styleUrl: './quote.component.css'
 })

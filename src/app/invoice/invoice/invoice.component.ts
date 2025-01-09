@@ -5,7 +5,7 @@ import { DataService } from '../../data.service';
 import { Customer } from '../../models/customer';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
-import { animate } from '@angular/animations';
+
 
 @Component({
   selector: 'app-invoice',
