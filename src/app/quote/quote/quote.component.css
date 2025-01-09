@@ -1,39 +1,11 @@
-.logo {
-    max-width: 100px;
-    border: 10px;
-}
-
 table {
     border: 1px solid #78bfee;
     background-color: #EEEEEE;
     width: 100%;
     text-align: left;
     border-collapse: collapse;
-  }
-  table td, table th {
-    /* border: 1px solid #AAAAAA; */
-    padding: 2px 2px;
-    margin: 3px;
-    
-  }
-  table tbody td {
-    font-size: 13px;
-  }
-  table thead {
-    background: #1C6EA4;
-    border-bottom: 2px solid #444444;
-  }
-  table thead th {
-    width: 150px;
-    font-size: 15px;
-    font-weight: bold;
-    color: #FFFFFF;
-    border-left: 1px solid #D0E4F5;
-  }
-  table thead th:first-child {
-    border-left: none;
-  }
+  };
 
-  .bg-card {
-    background-color: #EEEEEE;
-  }
+  .horizontal{
+    display: inline-block;
+};
