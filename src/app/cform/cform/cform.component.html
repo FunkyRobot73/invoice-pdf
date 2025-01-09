@@ -10,8 +10,14 @@
           <input class="form-control" [(ngModel)]="newPBHour" placeholder="Min. 2 & Max.8 Hours..." type="number" value="">
         </div>
         <div class="col-md-2"><label>Props?</label>
-          <input class="form-control" [(ngModel)]="newPBProp" placeholder="Last Name">
+          <select class="form-control" [(ngModel)]="newPBProp" placeholder="Yes or No..." id="simple" name="simple">
+            <option>Yes</option>
+            <option>No</option>
+            
+          </select>
+          
         </div>
+        
         <div class="col-md-2"><label>Backdrop?</label>
           <input class="form-control" [(ngModel)]="newPBBackdrop" placeholder="Appointment Date">
         </div>
@@ -45,6 +51,7 @@
         <div class="col-md-2">
           <button class="btn btn-primary" (click)="addQuote()">ADD</button>
           </div>
+          
       </div>
     </div>
 
@@ -80,5 +87,14 @@
       </ul>
       </table>
     </div>
+
+    <div class="container">
+      <h2>Total Cost for Photo Booth:</h2>
+        <div class="col-md-2">
+          <button class="btn btn-primary" (click)="updateQuote()">Update Quote</button>
+          <h2>{{absoluteCost / newPBHour}}</h2>
+          <h2>{{absoluteCost}}</h2>
+          </div>
+  </div>
 
     

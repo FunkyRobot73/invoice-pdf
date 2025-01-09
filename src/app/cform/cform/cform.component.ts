@@ -12,11 +12,16 @@ import { FormsModule } from '@angular/forms';
 })
 export class CformComponent implements OnInit {
   
-  quotesPB: Photobooth[] = [];
   
+  costPerHour = 150;
+  totalCost = 0;
+  options = 0;
+  quotesPB: Photobooth[] = [];
+  absoluteCost = 0;
   newPBHour: number = 2;
   
   newPBProp: string ="Yes";
+    
   newPBBackdrop: string ="Silver";
   newPBPrint: string ="Print";
   newPBSet: string ="Single";
@@ -47,8 +52,17 @@ export class CformComponent implements OnInit {
     // this.customers.push(newCustomer);
     this.quotesPB.push(newquotePB)
   }
+
+  updateQuote() {
+    if (this.newPBBook == "YES") {
+      this.options += 1;
+    }
+    this.absoluteCost = (this.costPerHour * this.newPBHour + this.options)
+  }
     
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 
   deleteQuote(index: number) {
     this.quotesPB.splice(index,1)
