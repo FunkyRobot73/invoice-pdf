@@ -1,21 +1,19 @@
 import { Component, NgModule, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { jsPDF } from 'jspdf' ;
-import { DataService } from './data.service';
-import { Customer } from './models/customer';
+import { DataService } from '../../data.service';
+import { Customer } from '../../models/customer';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 import { animate } from '@angular/animations';
-import { NavbarComponent } from "./navbar/navbar/navbar.component";
-
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, NgFor, NavbarComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  selector: 'app-invoice',
+  imports: [RouterOutlet, FormsModule, NgFor],
+  templateUrl: './invoice.component.html',
+  styleUrl: './invoice.component.css'
 })
-export class AppComponent implements OnInit {
+export class InvoiceComponent implements OnInit {
   defaultText = "Carlos";
   // newAppointmentTitle : any = "";
   newfName : any = "Carlito";
@@ -135,5 +133,4 @@ export class AppComponent implements OnInit {
 
     doc.save(fileName2 + "-INV-" + this.customers[x].custId + '.pdf');
   }
-
 }

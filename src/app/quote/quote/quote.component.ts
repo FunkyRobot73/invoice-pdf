@@ -1,21 +1,21 @@
 import { Component, NgModule, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { jsPDF } from 'jspdf' ;
-import { DataService } from './data.service';
-import { Customer } from './models/customer';
+import { DataService } from '../../data.service';
+import { Customer } from '../../models/customer';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
-import { animate } from '@angular/animations';
-import { NavbarComponent } from "./navbar/navbar/navbar.component";
+import { CformComponent } from "../../cform/cform/cform.component";
 
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, NgFor, NavbarComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  selector: 'app-quote',
+  imports: [RouterOutlet, FormsModule, NgFor, CformComponent],
+  templateUrl: './quote.component.html',
+  styleUrl: './quote.component.css'
 })
-export class AppComponent implements OnInit {
+export class QuoteComponent implements OnInit {
+
   defaultText = "Carlos";
   // newAppointmentTitle : any = "";
   newfName : any = "Carlito";
@@ -135,5 +135,4 @@ export class AppComponent implements OnInit {
 
     doc.save(fileName2 + "-INV-" + this.customers[x].custId + '.pdf');
   }
-
 }

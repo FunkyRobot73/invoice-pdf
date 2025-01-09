@@ -1,0 +1,77 @@
+<div class="container ">
+    <img class="logo mt-5" src="images/funky.webp">
+   
+   </div>
+   
+   <div class="container ">
+     <div class="card mt-3 p-3">
+       <div class="row">
+         <div class="col">
+           <h2 class="text-center">Create New Customer/Invoice</h2>
+         </div>
+       </div>
+       <div class="row mt-3">
+         <div class="col-md-2">
+           <input class="form-control" [(ngModel)]="newfName" placeholder="First Name" type="text" value="{{dataService.funkyData.myname}}">
+         </div>
+         <div class="col-md-2">
+           <input class="form-control" [(ngModel)]="newlName" placeholder="Last Name">
+         </div>
+         <div class="col-md-2">
+           <input class="form-control" [(ngModel)]="newDate" type="date" placeholder="Appointment Date">
+         </div>
+         <div class="col-md-2">
+           <input class="form-control" [(ngModel)]="newEmail" placeholder="carlos@funkyrobot.ca">
+         </div>
+         <div class="col-md-2">
+           <input class="form-control" [(ngModel)]="newPhone" placeholder="(416) 832-3546">
+         </div>
+         <div class="col-md-2">
+           <input class="form-control" [(ngModel)]="newAddress" placeholder="800 Elms St.">
+         </div>
+         <div class="col-md-2">
+           <input class="form-control" [(ngModel)]="newCity" placeholder="Burlington">
+         </div>
+         <div class="col-md-2">
+           <input class="form-control" [(ngModel)]="newCost" placeholder="350">
+         </div>
+         <div class="col-md-12">
+           <input class="form-control" [(ngModel)]="newNote" placeholder="Just a Note...">
+         </div>
+         <div class="col-md-12">
+           <input class="form-control" [(ngModel)]="newService" placeholder="Package Details">
+         </div>
+         <div class="col-md-2">
+           <button class="btn btn-primary" (click)="addCustomer()">ADD</button>
+           </div>
+       </div>
+     </div>
+     <!-- TABLE -->
+     
+     <div class="container card mt-2">
+       <table class="mt-2 mb-2">
+         <ul class="list-group mt-3">
+           <tr>
+             <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let customer of customers; index as i">
+               
+              
+                   
+                     
+                <td>{{customer.fName}}</td> 
+                <td>{{customer.lName}} </td>  
+                <td>{{customer.custId}}</td>  
+                <td>{{customer.email}}</td> 
+                <td>{{customer.date}}</td> 
+                <td>{{customer.phone}}</td> 
+                <td>{{customer.address}}</td>
+                <td>{{customer.cost}}</td>
+               <button class="btn btn-danger" (click)="deleteCustomer(i)">DELETE</button>
+               <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button>
+           
+     </li>
+           </tr>
+       </ul>
+       </table>
+     </div>
+   </div>
+   
