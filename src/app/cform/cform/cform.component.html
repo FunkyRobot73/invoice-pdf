@@ -156,7 +156,8 @@
           <h4>Total Upgrade Costs: {{upgradeCosts}}</h4>
           <!-- <h4>Absolute Cost: {{costPerHour * newPBHour + totalCost}}</h4> -->
           <h4></h4>
-          <h4>Total Cost: {{(costPerHour * newPBHour + upgradeCosts)}} (Cost Per Hour: {{ (costPerHour * newPBHour + upgradeCosts) / newPBHour}})</h4>
+          <h4>Total Cost: {{(costPerHour * newPBHour + upgradeCosts) | currency}}</h4> 
+          <p>(Cost Per Hour: {{ ((costPerHour * newPBHour + upgradeCosts) / newPBHour | currency)}})</p>
           <button class="btn btn-primary m-2" (click)="calculateTotal()">Update Quote</button>
           </div>
   </div>
@@ -193,7 +194,7 @@
         <td>{{newPBBook}}</td>
         <td>{{newPBGreen}}</td>
         <td>{{newPBColor}}</td>
-        <td>{{(costPerHour * newPBHour + upgradeCosts)}}</td>
+        <td>{{(costPerHour * newPBHour + upgradeCosts) | currency}}</td>
       </tr>
       
       
