@@ -130,6 +130,7 @@ export class CformComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  
 
   deleteQuote(index: number) {
     this.quotesPB.splice(index,1)
