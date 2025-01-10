@@ -155,8 +155,8 @@
           <h4>Total Hours: {{newPBHour}}</h4>
           <h4>Total Upgrade Costs: {{upgradeCosts}}</h4>
           <!-- <h4>Absolute Cost: {{costPerHour * newPBHour + totalCost}}</h4> -->
-          <h4>Cost Per Hour: {{ (costPerHour * newPBHour + upgradeCosts) / newPBHour}}</h4>
-          <h4>Total Cost: {{(costPerHour * newPBHour + upgradeCosts)}}</h4>
+          <h4></h4>
+          <h4>Total Cost: {{(costPerHour * newPBHour + upgradeCosts)}} (Cost Per Hour: {{ (costPerHour * newPBHour + upgradeCosts) / newPBHour}})</h4>
           <button class="btn btn-primary m-2" (click)="calculateTotal()">Update Quote</button>
           </div>
   </div>

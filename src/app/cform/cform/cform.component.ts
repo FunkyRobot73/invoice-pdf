@@ -61,6 +61,7 @@ export class CformComponent implements OnInit {
   calculateTotal(): void {
     let backdropCost = 0;
     let propCost = 0;
+    let printCost = 0;
     // Add backdrop costs based on text upgrade
     switch (this.newPBBackdrop.toLowerCase()) {
       case 'silver':
@@ -92,10 +93,26 @@ export class CformComponent implements OnInit {
       default:
         propCost = 0; // No additional cost for invalid input
     }
+
+    // Add Prints or Digital costs based on text upgrade
+    switch (this.newPBPrint.toLowerCase()) {
+      case 'digital only':
+        printCost = 0;
+        break;
+      case 'physical prints (+ digital)':
+        printCost = 50;
+        break;
+      
+        
+      default:
+        printCost = 0; // No additional cost for invalid input
+    }
+
+
       // Total price calculation
       this.upgradeCosts =
       // this.costPerHour * this.newPBHour +
-      backdropCost + propCost; // Add upgrade cost
+      backdropCost + propCost + printCost; // Add upgrade cost
       this.newPBHour = this.newPBHour
   }
 
