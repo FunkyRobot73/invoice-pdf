@@ -12,27 +12,32 @@ import { FormsModule } from '@angular/forms';
 })
 export class CformComponent implements OnInit {
   
-  
   costPerHour = 150;
+  costPerHour1 = this.costPerHour;
   totalCost = 0;
+  upgradeCosts = 0;
   options = 0;
   quotesPB: Photobooth[] = [];
-  absoluteCost = 0;
   newPBHour: number = 2;
+
   
-  newPBProp: string ="Yes";
-    
+  newPBProp: string ="Standard";
+  
   newPBBackdrop: string ="Silver";
-  newPBPrint: string ="Print";
+  newPBPrint: string ="Digital Only";
   newPBSet: string ="Single";
-  newPBLayout: string ="Strip";
-  newPBUSB: string ="NO";
-  newPBHost: string ="YES";
-  newPBEmail: string ="YES";
-  newPBBook: string ="YES";
+  newPBLayout: string ="Classic Strip";
+  newPBUSB: string ="No";
+  newPBHost: string ="Included Free";
+  newPBEmail: string ="No";
+  newPBBook: string ="No";
   newPBGreen: string ="No";
   newPBColor: string ="Color";
+  
+  absoluteCost = (this.costPerHour * this.newPBHour + this.options);
 
+  
+  
   addQuote() {
     let newquotePB : Photobooth = {
       // Sample ==> fName: this.newfName,
@@ -53,9 +58,53 @@ export class CformComponent implements OnInit {
     this.quotesPB.push(newquotePB)
   }
 
+  calculateTotal(): void {
+    let backdropCost = 0;
+    let propCost = 0;
+    // Add backdrop costs based on text upgrade
+    switch (this.newPBBackdrop.toLowerCase()) {
+      case 'silver':
+        backdropCost = 0;
+        break;
+      case 'white':
+        backdropCost = 50;
+        break;
+      case 'gold':
+        backdropCost = 100;
+        break;
+      default:
+        backdropCost = 0; // No additional cost for invalid input
+    }
+    // Add backdrop costs based on text upgrade
+    switch (this.newPBProp.toLowerCase()) {
+      case 'standard':
+        propCost = 0;
+        break;
+      case 'no':
+        propCost = 0;
+        break;
+      case 'fancy':
+        propCost = 50;
+        break;
+        case 'kids':
+        propCost = 25;
+        break;
+      default:
+        propCost = 0; // No additional cost for invalid input
+    }
+      // Total price calculation
+      this.upgradeCosts =
+      // this.costPerHour * this.newPBHour +
+      backdropCost + propCost; // Add upgrade cost
+      this.newPBHour = this.newPBHour
+  }
+
   updateQuote() {
-    if (this.newPBBook == "YES") {
-      this.options += 1;
+    if (this.newPBProp == "Yes") {
+      this.options = 1;
+    }
+    else {
+      this.options = 0;
     }
     this.absoluteCost = (this.costPerHour * this.newPBHour + this.options)
   }
@@ -68,4 +117,6 @@ export class CformComponent implements OnInit {
     this.quotesPB.splice(index,1)
     localStorage.setItem("quotesPB", JSON.stringify(this.quotesPB))
   }
+
+  
 }
