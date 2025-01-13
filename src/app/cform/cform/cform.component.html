@@ -151,7 +151,7 @@
     <div class="container card p-3 mt-3 col-md-12">
       
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
               <h2>Photo Booth Quote</h2>
               <!-- <button class="btn btn-primary m-2" (click)="updateQuote()">Update Quote</button> -->
               <h4>Total Hours: {{newPBHour}}</h4>
@@ -163,11 +163,22 @@
               <button class="btn btn-primary m-2" (click)="calculateTotal()">Update Quote</button>
             </div>
             
-            <div class="col-md-6">
+            <div class="col-md-4">
               
                 
                 <img class="logo-head" src="images/funky-l.png">
                 
+            </div>
+
+            <div class="col-md-4">
+              
+              <dl>
+              <dt>{{newPBHour}} Hour Photo Booth with {{newPBPrint}}</dt>
+                <dd>- {{newPBProp}} Props</dd>
+                <dd>- {{newPBBackdrop}} Backdrop</dd>
+                <dt>Milk</dt>
+                <dd>- white cold drink</dd>
+              </dl>
             </div>
           </div>
         
