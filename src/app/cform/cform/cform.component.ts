@@ -63,7 +63,7 @@ export class CformComponent implements OnInit {
     let backdropCost = 0;
     let propCost = 0;
     let printCost = 0;
-    // Add backdrop costs based on text upgrade
+    let setCost = 0;    // Add backdrop costs based on text upgrade
     switch (this.newPBBackdrop.toLowerCase()) {
       case 'silver':
         backdropCost = 0;
@@ -109,11 +109,28 @@ export class CformComponent implements OnInit {
         printCost = 0; // No additional cost for invalid input
     }
 
+      // Add Prints or Digital costs based on text upgrade
+      switch (this.newPBSet.toLowerCase()) {
+        case 'single':
+          setCost = 0;
+          break;
+        case 'two prints':
+          setCost = 50;
+          break;
+          case 'print per guest':
+          setCost = 100;
+          break;
+        
+          
+        default:
+          setCost = 0; // No additional cost for invalid input
+      }
+
 
       // Total price calculation
       this.upgradeCosts =
       // this.costPerHour * this.newPBHour +
-      backdropCost + propCost + printCost; // Add upgrade cost
+      backdropCost + propCost + printCost + setCost; // Add upgrade cost
       this.newPBHour = this.newPBHour
   }
 
