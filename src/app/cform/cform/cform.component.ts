@@ -64,6 +64,9 @@ export class CformComponent implements OnInit {
     let propCost = 0;
     let printCost = 0;
     let setCost = 0;    // Add backdrop costs based on text upgrade
+    let layoutCost = 0;
+
+
     switch (this.newPBBackdrop.toLowerCase()) {
       case 'silver':
         backdropCost = 0;
@@ -124,6 +127,22 @@ export class CformComponent implements OnInit {
           
         default:
           setCost = 0; // No additional cost for invalid input
+      }
+
+      switch (this.newPBLayout.toLowerCase()) {
+        case 'classic strip':
+          layoutCost = 0;
+          break;
+        case 'landscape':
+          layoutCost = 50;
+          break;
+          case 'portrait':
+          layoutCost = 50;
+          break;
+        
+          
+        default:
+          layoutCost = 0; // No additional cost for invalid input
       }
 
 
