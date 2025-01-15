@@ -34,16 +34,18 @@
         <div class="col-md-2"><label>Prints or Digital?</label>
           <select class="form-control" [(ngModel)]="newPBPrint">
           <option>Digital Only</option>
-          <option>Physical Prints (+ Digital)</option>
+          <option>Single Print</option>
+          <option>Double Print</option>
+          <option>Print Per Guest</option>
           </select>
         </div>
-        <div class="col-md-2"><label>Single/Double/PPP ?</label>
-          <select class="form-control" [(ngModel)]="newPBSet" name="setSelect">
+        <!-- <div class="col-md-2"><label>Single/Double/PPP ?</label>
+          <select class="form-control" [(ngModel)]="newPBSet" [disabled]="newPBPrint">
             <option>Single</option>
             <option>Two Prints</option>
             <option>Print Per Guest</option>
           </select>
-        </div>
+        </div> -->
         <div class="col-md-2"><label>Layout?</label>
           <select class="form-control" [(ngModel)]="newPBLayout">
             <option>Classic Strip</option>
@@ -107,7 +109,7 @@
             <th scope="col">Props</th>
             <th scope="col">Backdrop</th>
             <th scope="col">Prints</th>
-            <th scope="col">Set</th>
+            <!-- <th scope="col">Set</th> -->
             <th scope="col">Layout</th>
             <th scope="col">USB</th>
             <th scope="col">Host</th>
@@ -130,7 +132,7 @@
                <td>{{quote.pbProp}}</td>
                <td>{{quote.pbBackdrop}}</td>
                <td>{{quote.pbPrint}}</td>
-               <td>{{quote.pbSet}}</td>
+               <!-- <td>{{quote.pbSet}}</td> -->
                <td>{{quote.pbLayout}}</td>
                <td>{{quote.pbUSB}}</td>
                <td>{{quote.pbHost}}</td>
@@ -176,8 +178,8 @@
               <dt>{{newPBHour}} Hour Photo Booth with {{newPBPrint}}</dt>
                 <dd> - {{newPBProp}} Props</dd>
                 <dd> - {{newPBBackdrop}} Backdrop</dd>
-                <dd> - {{newPBPrint}}</dd>
-                <dd> - {{newPBLayout}} with {{newPBSet}} Print</dd>
+                <!-- <dd> - {{newPBPrint}}</dd> -->
+                <dd> - {{newPBLayout}} with {{newPBPrint}}</dd>
                 
               </dl>
             </div>
@@ -192,7 +194,7 @@
         <th scope="col">Props</th>
         <th scope="col">Backdrop</th>
         <th scope="col">Prints</th>
-        <th scope="col">Set</th>
+        <!-- <th scope="col">Set</th> -->
         <th scope="col">Layout</th>
         <th scope="col">USB</th>
         <th scope="col">Host</th>
@@ -209,7 +211,7 @@
         <td>{{newPBProp}}</td>
         <td>{{newPBBackdrop}}</td>
         <td>{{newPBPrint}}</td>
-        <td>{{newPBSet}}</td>
+        <!-- <td>{{newPBSet}}</td> -->
         <td>{{newPBLayout}}</td>
         <td>{{newPBUSB}}</td>
         <td>{{newPBHost}}</td>

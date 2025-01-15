@@ -4,7 +4,7 @@ export interface Photobooth {
     pbProp: string,
     pbBackdrop: string,
     pbPrint: string,
-    pbSet: string,
+    // pbSet: string,
     pbLayout: string,
     pbUSB: string,
     pbHost: string,

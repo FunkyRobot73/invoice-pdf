@@ -26,7 +26,7 @@ export class CformComponent implements OnInit {
   
   newPBBackdrop: string ="Silver";
   newPBPrint: string ="Digital Only";
-  newPBSet: string ="Single";
+  // newPBSet: string ="Single";
   newPBLayout: string ="Classic Strip";
   newPBUSB: string ="No";
   newPBHost: string ="Included Free";
@@ -46,7 +46,7 @@ export class CformComponent implements OnInit {
       pbProp: this.newPBProp,
     pbBackdrop: this.newPBBackdrop,
     pbPrint: this.newPBPrint,
-    pbSet: this.newPBSet,
+    // pbSet: this.newPBSet,
     pbLayout: this.newPBLayout,
     pbUSB: this.newPBUSB,
     pbHost: this.newPBHost,
@@ -103,31 +103,21 @@ export class CformComponent implements OnInit {
       case 'digital only':
         printCost = 0;
         break;
-      case 'physical prints (+ digital)':
+      case 'single print':
         printCost = 50;
         break;
-      
+      case 'double print':
+        printCost = 75;
+        break;
+      case 'print per guest':
+        printCost = 100;
+        break;
         
       default:
         printCost = 0; // No additional cost for invalid input
     }
 
-      // Add Prints or Digital costs based on text upgrade
-      switch (this.newPBSet.toLowerCase()) {
-        case 'single':
-          setCost = 0;
-          break;
-        case 'two prints':
-          setCost = 50;
-          break;
-          case 'print per guest':
-          setCost = 100;
-          break;
-        
-          
-        default:
-          setCost = 0; // No additional cost for invalid input
-      }
+      
 
       switch (this.newPBLayout.toLowerCase()) {
         case 'classic strip':
