@@ -37,6 +37,11 @@ export class CformComponent implements OnInit {
   
   absoluteCost = (this.costPerHour * this.newPBHour + this.options);
 
+  backdropCost = 0;
+  propCost = 0;
+  printCost = 0;
+  setCost = 0;
+  layoutCost =0;
   
   
   addQuote() {
@@ -44,16 +49,16 @@ export class CformComponent implements OnInit {
       // Sample ==> fName: this.newfName,
       pbHour: this.newPBHour,
       pbProp: this.newPBProp,
-    pbBackdrop: this.newPBBackdrop,
-    pbPrint: this.newPBPrint,
-    // pbSet: this.newPBSet,
-    pbLayout: this.newPBLayout,
-    pbUSB: this.newPBUSB,
-    pbHost: this.newPBHost,
-    pbEmail: this.newPBEmail,
-    pbBook: this.newPBBook,
-    pbGreen: this.newPBGreen,
-    pbColor: this.newPBColor
+      pbBackdrop: this.newPBBackdrop,
+      pbPrint: this.newPBPrint,
+      // pbSet: this.newPBSet,
+      pbLayout: this.newPBLayout,
+      pbUSB: this.newPBUSB,
+      pbHost: this.newPBHost,
+      pbEmail: this.newPBEmail,
+      pbBook: this.newPBBook,
+      pbGreen: this.newPBGreen,
+      pbColor: this.newPBColor
     }
     // this.customers.push(newCustomer);
     this.quotesPB.push(newquotePB)
@@ -63,7 +68,7 @@ export class CformComponent implements OnInit {
     let backdropCost = 0;
     let propCost = 0;
     let printCost = 0;
-    let setCost = 0;    // Add backdrop costs based on text upgrade
+    // let setCost = 0;    // Add backdrop costs based on text upgrade
     let layoutCost = 0;
 
 
@@ -135,11 +140,16 @@ export class CformComponent implements OnInit {
           layoutCost = 0; // No additional cost for invalid input
       }
 
+      this.backdropCost = backdropCost;
+      this.propCost = propCost;
+      this.printCost = printCost;
+      // this.setCost = setCost;
+      this.layoutCost = layoutCost;
 
       // Total price calculation
       this.upgradeCosts =
       // this.costPerHour * this.newPBHour +
-      backdropCost + propCost + printCost + setCost; // Add upgrade cost
+      backdropCost + propCost + printCost + layoutCost; // Add upgrade cost
       this.newPBHour = this.newPBHour
   }
 
