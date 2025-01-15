@@ -41,7 +41,8 @@ export class CformComponent implements OnInit {
   propCost = 0;
   printCost = 0;
   setCost = 0;
-  layoutCost =0;
+  layoutCost = 0;
+  usbCost = 0;
   
   
   addQuote() {
@@ -70,6 +71,7 @@ export class CformComponent implements OnInit {
     let printCost = 0;
     // let setCost = 0;    // Add backdrop costs based on text upgrade
     let layoutCost = 0;
+    let usbCost = 0;
 
 
     switch (this.newPBBackdrop.toLowerCase()) {
@@ -140,16 +142,28 @@ export class CformComponent implements OnInit {
           layoutCost = 0; // No additional cost for invalid input
       }
 
+      switch (this.newPBUSB.toLowerCase()) {
+        case 'no':
+          usbCost = 0;
+          break;
+        case 'yes':
+          usbCost = 50;
+          break;  
+          
+        default:
+          usbCost = 0; // No additional cost for invalid input
+      }
+
       this.backdropCost = backdropCost;
       this.propCost = propCost;
       this.printCost = printCost;
       // this.setCost = setCost;
       this.layoutCost = layoutCost;
-
+      this.usbCost = usbCost;
       // Total price calculation
       this.upgradeCosts =
       // this.costPerHour * this.newPBHour +
-      backdropCost + propCost + printCost + layoutCost; // Add upgrade cost
+      backdropCost + propCost + printCost + layoutCost + usbCost; // Add upgrade cost
       this.newPBHour = this.newPBHour
   }
 
