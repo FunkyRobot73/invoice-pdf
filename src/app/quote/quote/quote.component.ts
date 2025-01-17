@@ -10,7 +10,7 @@ import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-quote',
-  imports: [RouterOutlet, FormsModule, NgFor],
+  imports: [FormsModule, NgFor],
   templateUrl: './quote.component.html',
   styleUrl: './quote.component.css'
 })
@@ -33,7 +33,7 @@ export class QuoteComponent implements OnInit {
   newDetails01: string = "";
   newDetails02: string = "";
 
-  newCost: number = 350;
+  newCost: number = 750;
 
   dataService = inject(DataService)
   title = 'simple-invoice';

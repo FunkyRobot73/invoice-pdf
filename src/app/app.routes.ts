@@ -10,7 +10,7 @@ export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full'},
     { path: 'home', component: QuoteComponent },
     { path: 'quote', component: QuoteComponent },
-    { path: 'form', component: CformComponent },
+    { path: 'pb', component: CformComponent },
 
 ];
 
