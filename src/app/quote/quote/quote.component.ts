@@ -29,7 +29,10 @@ export class QuoteComponent implements OnInit {
   newAddress: string = "690 Francis Rd.";
   newCity: string = "Burlington";
   newNote: string = "Photo Booth needs Table near Power Outlet"
-  newService: string = "3-Hour Photo Booth (Gold Package) from 9pm to Midnight";
+  newService: string = "3-Hour Photo Booth (Gold Package)";
+  newDetails01: string = "";
+  newDetails02: string = "";
+
   newCost: number = 350;
 
   dataService = inject(DataService)
@@ -54,6 +57,9 @@ export class QuoteComponent implements OnInit {
         city: this.newCity,
         note: this.newNote,
         service: this.newService,
+        details01: this.newDetails01,
+        details02: this.newDetails02,
+
         cost: this.newCost
       }
 
@@ -122,9 +128,13 @@ export class QuoteComponent implements OnInit {
     doc.setFontSize(12);
     doc.setFont('courier');
     doc.text(`${this.customers[x].service}`, 10, 79);
+    doc.text(`${this.customers[x].details01}`, 10, 89);
+    doc.text(`${this.customers[x].details02}`, 10, 99);
     doc.line(10, 72, 200, 72) //startx,STARTy,endx,ENDy
     doc.line(10, 73, 200, 73) //startx,STARTy,endx,ENDy
     doc.text(`NOTES: ${this.customers[x].note}`, 20, 240);
+
+    doc.line(160, 76, 160, 232) //startx,STARTy,endx,ENDy VERTICAL LINE
 
     doc.line(10, 234, 200, 234) //startx,STARTy,endx,ENDy
     doc.line(10, 235, 200, 235) //startx,STARTy,endx,ENDy
@@ -133,6 +143,6 @@ export class QuoteComponent implements OnInit {
     doc.text(`TOTAL $ ${this.customers[x].cost}`, 165, 228);
     doc.text(`Rate  $ ${this.customers[x].cost}`, 165, 79);
 
-    doc.save(fileName2 + "-INV-" + this.customers[x].custId + '.pdf');
+    doc.save(this.customers[x].lName + "-QT-" + `${invoice.slice(0,7)}` + '.pdf');
   }
 }

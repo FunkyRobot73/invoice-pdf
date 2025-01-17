@@ -14,6 +14,8 @@ export interface Customer {
         note:string,
         // message: string,
         service:string,
+        details01:string,
+        details02:string,
         cost: number,
       
 

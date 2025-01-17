@@ -30,6 +30,8 @@ export class AppComponent implements OnInit {
   newCity: string = "Burlington";
   newNote: string = "Photo Booth needs Table near Power Outlet"
   newService: string = "3-Hour Photo Booth (Gold Package) from 9pm to Midnight";
+  newDetails01: string ="";
+  newDetails02: string ="";
   newCost: number = 350;
 
   dataService = inject(DataService)
@@ -54,6 +56,8 @@ export class AppComponent implements OnInit {
         city: this.newCity,
         note: this.newNote,
         service: this.newService,
+        details01: this.newDetails01,
+        details02: this.newDetails02,
         cost: this.newCost
       }
 

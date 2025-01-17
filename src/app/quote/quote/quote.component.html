@@ -45,15 +45,30 @@
          </div>
          <div class="col-md-2">
             <label>Cost</label>
-           <input class="form-control" [(ngModel)]="newCost" placeholder="350">
+           <input class="form-control" [(ngModel)]="newCost" placeholder="750">
          </div>
+                  
+         <div class="col-md-12"><label>Package:</label>
+          <select class="form-control" [(ngModel)]="newService">
+            <option>3-Hour Photo Booth (Gold Package)</option>
+            <option>DJ Party (5 Hrs) Standard Lights & Mic.</option>
+            
+            </select>
+        </div>
+
+        <div class="col-md-12">
+          <label>Details</label>
+         <input class="form-control" [(ngModel)]="newDetails01" placeholder="Package Details">
+        </div>
+
+        <div class="col-md-12">
+          <label>Details</label>
+         <input class="form-control" [(ngModel)]="newDetails02" placeholder="Package Details">
+        </div>
+
          <div class="col-md-12">
             <label>Note</label>
            <input class="form-control" [(ngModel)]="newNote" placeholder="Just a Note...">
-         </div>
-         <div class="col-md-12">
-            <label>Package Details</label>
-           <input class="form-control" [(ngModel)]="newService" placeholder="Package Details">
          </div>
          <div class="col-md-2">
            <button class="btn btn-primary" (click)="addCustomer()">ADD</button>
