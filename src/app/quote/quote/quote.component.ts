@@ -65,8 +65,7 @@ export class QuoteComponent implements OnInit {
 
       this.customers.push(newCustomer);
 
-      this.newfName = "Adele";
-      this.newlName = "Donatile";
+      
 
       // alert(this.customers.length);
       localStorage.setItem("customers", JSON.stringify(this.customers))
