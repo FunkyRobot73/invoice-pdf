@@ -2,12 +2,13 @@ import { Component, OnInit, Pipe } from '@angular/core';
 import { Photobooth } from '../../models/photobooth';
 import { CurrencyPipe, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { QuoteComponent } from "../../quote/quote/quote.component";
 
 
 
 @Component({
   selector: 'app-cform',
-  imports: [NgFor, FormsModule, CurrencyPipe],
+  imports: [NgFor, FormsModule, CurrencyPipe, QuoteComponent],
   templateUrl: './cform.component.html',
   styleUrl: './cform.component.css'
 })
