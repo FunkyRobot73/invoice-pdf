@@ -32,7 +32,7 @@ export class AddCustomerComponent implements OnInit {
   newDetails02: string = "";
   newDetails03: string = "";
   newDetails04: string = "";
-
+  newQuoteOrInvoice: string = "";
   newCost: number = 750;
 
   dataService = inject(DataService)
@@ -61,7 +61,7 @@ export class AddCustomerComponent implements OnInit {
         details02: this.newDetails02,
         details03: this.newDetails03,
         details04: this.newDetails04,
-
+        quoteOrInvoice: this.newQuoteOrInvoice,
         cost: this.newCost
       }
 

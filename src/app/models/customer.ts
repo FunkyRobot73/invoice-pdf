@@ -18,6 +18,7 @@ export interface Customer {
         details02:string,
         details03:string,
         details04:string,
+        quoteOrInvoice:string;
         cost: number,
       
 

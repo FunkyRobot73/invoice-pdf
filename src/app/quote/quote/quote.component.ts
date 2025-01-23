@@ -28,12 +28,13 @@ export class QuoteComponent implements OnInit {
   newPhone: string = "416-832-3546";
   newAddress: string = "690 Francis Rd.";
   newCity: string = "Burlington";
-  newNote: string = "Photo Booth needs Table near Power Outlet"
+  newNote: string = "Photo Booth & DJ needs Table near Power Outlet (Reg. $995)"
   newService: string = "3-Hour Photo Booth (Gold Package)";
   newDetails01: string = "";
   newDetails02: string = "";
   newDetails03: string = "";
   newDetails04: string = "";
+  newQuoteOrInvoice: string = "Quote"
 
   newCost: number = 750;
 
@@ -63,7 +64,7 @@ export class QuoteComponent implements OnInit {
         details02: this.newDetails02,
         details03: this.newDetails03,
         details04: this.newDetails04,
-
+        quoteOrInvoice: this.newQuoteOrInvoice,
         cost: this.newCost
       }
 
@@ -90,7 +91,7 @@ export class QuoteComponent implements OnInit {
     doc.text(`${this.dataService.funkyData.name}`, 40, 18);
     doc.text(`${this.dataService.funkyData.email}`, 40, 26);
     doc.setFontSize(24);
-    doc.text(`INVOICE`, 150, 18);
+    doc.text(`# ${this.customers[0].custId}`, 150, 18);
     doc.setFontSize(12);
     doc.text(`# ${this.customers[0].custId}`, 160, 30);
     doc.text(`${this.customers[0].fName}`, 160, 36);
@@ -112,7 +113,7 @@ export class QuoteComponent implements OnInit {
     doc.text(`${this.dataService.funkyData.name}`, 40, 18);
     doc.text(`${this.dataService.funkyData.email}`, 40, 26);
     doc.setFontSize(24);
-    doc.text(`INVOICE`, 150, 18);
+    doc.text(`${this.customers[x].quoteOrInvoice}`, 150, 18);
     doc.setFontSize(12);
     let invoice = this.customers[x].custId.toString();
     doc.text(`# ${invoice.slice(0,7)}`, 150, 30);

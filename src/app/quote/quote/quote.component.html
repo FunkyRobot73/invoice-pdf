@@ -5,7 +5,7 @@
             <div class="horizontal">
                 <h2 class="text-center">
                 <img class="logo" src="images/funky-l.png">Create New Simple Quote/Invoice with PDF
-                <img class="logo" src="images/funky-l.png">
+                <img class="logo" src="images/price-quote.jpg">
                 </h2>
             </div>
         
@@ -43,6 +43,14 @@
             <label>Cost</label>
            <input class="form-control" [(ngModel)]="newCost" placeholder="750">
          </div>
+
+         <div class="col-md-2">
+          <label>Quote or Invoice</label>
+         <select class="form-control" [(ngModel)]="newQuoteOrInvoice" placeholder="750">
+          <option>Quote</option>
+          <option>Invoice</option>
+          </select>
+       </div>
                   
          <div class="col-md-12"><label>Package:</label>
           <select class="form-control" [(ngModel)]="newService">
@@ -51,7 +59,9 @@
             <option>5-Hour Photo Booth (Gold Package)</option>
             <option>DJ Party (5 Hrs) Standard Lights & Wireless Mic.</option>
             <option>DJ Wedding (8 Hrs) Standard Lights & Wireless Mic.</option>
-            
+            <option>DJ & Photo Booth Combo.</option>
+            <option>DJ & Photo Booth Combo (Outdoor).</option>
+            <option>DJ & Photo Booth Combo (Outdoor with Kids).</option>
             </select>
         </div>
 

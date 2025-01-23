@@ -8,7 +8,7 @@ import { QuoteComponent } from "../../quote/quote/quote.component";
 
 @Component({
   selector: 'app-cform',
-  imports: [NgFor, FormsModule, CurrencyPipe, QuoteComponent],
+  imports: [NgFor, FormsModule, CurrencyPipe],
   templateUrl: './cform.component.html',
   styleUrl: './cform.component.css'
 })

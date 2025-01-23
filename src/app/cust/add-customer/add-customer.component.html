@@ -2,23 +2,39 @@
    
    <div class="container">
     <div class="card mt-1 p-3 bg-card">
-        <div class="horizontal">
-            <h2 class="text-center">
-            <img class="logo" src="images/funky-l.png">Create New Quote/Invoice
-            <img class="logo" src="images/funky-l.png">
-            </h2>
+        <div class="row ">
+            
+            <div class="col-lg-2"><img class="logo" src="images/new-customer.png"></div>
+            <div class="col-lg-4"><h2 class="">Create New Customer</h2></div>
+            <div class="col-lg-2"><img class="logo" src="images/funky-l.png"></div>
+            
+            
         </div>
     
 <div class="row mt-3 bg-card">
 
      <div class="col-md-2">
-        <label>Name</label>
+        <label>First Name</label>
+       <input class="form-control" [(ngModel)]="newfName" placeholder="First Name" type="text" value="{{dataService.funkyData.myname}}">
+     </div>
+     <div class="col-md-2">
+        <label>Last Name</label>
        <input class="form-control" [(ngModel)]="newfName" placeholder="First Name" type="text" value="{{dataService.funkyData.myname}}">
      </div>
      <div class="col-md-2">
         <label>Company Name</label>
        <input class="form-control" [(ngModel)]="newlName" placeholder="Last Name">
      </div>
+
+     <div class="col-md-2"><label>Event Type:</label>
+        <select class="form-control" [(ngModel)]="newService">
+          <option>3-Hour Photo Booth (Gold Package)</option>
+          <option>DJ Party (5 Hrs) Standard Lights & Mic.</option>
+          <option>DJ & Photo Booth Combo.</option>
+          
+          </select>
+      </div>
+
      <div class="col-md-2">
         <label>Date</label>
        <input class="form-control" [(ngModel)]="newDate" type="date" placeholder="Appointment Date">
@@ -32,40 +48,54 @@
        <input class="form-control" [(ngModel)]="newPhone" placeholder="(416) 832-3546">
      </div>
      <div class="col-md-2">
-        <label>Venue Address</label>
+        <label>Venue Name:</label>
        <input class="form-control" [(ngModel)]="newAddress" placeholder="800 Elms St.">
      </div>
      <div class="col-md-2">
-        <label>City & Province</label>
+        <label>Venue Address</label>
+       <input class="form-control" [(ngModel)]="newAddress" placeholder="800 Elms St.">
+     </div>
+     
+     <div class="col-md-2">
+        <label>Venue City:</label>
        <input class="form-control" [(ngModel)]="newCity" placeholder="Burlington, Ontario">
      </div>
      <div class="col-md-2">
-        <label>Cost</label>
+        <label>Indoor or Outdoor?</label>
        <input class="form-control" [(ngModel)]="newCost" placeholder="750">
      </div>
               
-     <div class="col-md-12"><label>Package:</label>
+     <div class="col-md-4"><label>Package:</label>
       <select class="form-control" [(ngModel)]="newService">
-        <option>3-Hour Photo Booth (Gold Package)</option>
-        <option>DJ Party (5 Hrs) Standard Lights & Mic.</option>
+        <option>DJ Service</option>
+        <option>Photo Booth</option>
+        <option>DJ & Photo Booth Combo</option>
         
         </select>
     </div>
 
-    <div class="col-md-12">
-      <label>Details</label>
-     <input class="form-control" [(ngModel)]="newDetails01" placeholder="Package Details">
-    </div>
+    
 
-    <div class="col-md-12">
-      <label>Details</label>
+    <div class="col-md-4">
+      <label>Time Start:</label>
      <input class="form-control" [(ngModel)]="newDetails02" placeholder="Package Details">
     </div>
+    <div class="col-md-4">
+        <label>Time End:</label>
+       <input class="form-control" [(ngModel)]="newDetails02" placeholder="Package Details">
+      </div>
+
+      <div class="col-md-12">
+        <label>Details</label>
+       <input class="form-control" [(ngModel)]="newDetails01" placeholder="Package Details">
+      </div>
 
      <div class="col-md-12">
         <label>Note</label>
        <input class="form-control" [(ngModel)]="newNote" placeholder="Just a Note...">
      </div>
+
+
      <div class="col-md-2">
        <button class="btn btn-primary" (click)="addCustomer()">ADD</button>
        </div>
