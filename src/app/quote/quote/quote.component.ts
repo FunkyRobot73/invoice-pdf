@@ -133,6 +133,8 @@ export class QuoteComponent implements OnInit {
     doc.text(`${this.customers[x].service}`, 10, 79);
     doc.text(`${this.customers[x].details01}`, 10, 89);
     doc.text(`${this.customers[x].details02}`, 10, 99);
+    doc.text(`${this.customers[x].details03}`, 10, 109);
+    doc.text(`${this.customers[x].details04}`, 10, 119);
     doc.line(10, 72, 200, 72) //startx,STARTy,endx,ENDy
     doc.line(10, 73, 200, 73) //startx,STARTy,endx,ENDy
     doc.text(`NOTES: ${this.customers[x].note}`, 20, 240);
