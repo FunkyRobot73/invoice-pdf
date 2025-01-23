@@ -16,6 +16,8 @@ export interface Customer {
         service:string,
         details01:string,
         details02:string,
+        details03:string,
+        details04:string,
         cost: number,
       
 

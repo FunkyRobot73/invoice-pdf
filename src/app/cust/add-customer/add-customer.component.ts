@@ -6,15 +6,13 @@ import { Customer } from '../../models/customer';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 
-
-
 @Component({
-  selector: 'app-quote',
+  selector: 'app-add-customer',
   imports: [FormsModule, NgFor],
-  templateUrl: './quote.component.html',
-  styleUrl: './quote.component.css'
+  templateUrl: './add-customer.component.html',
+  styleUrl: './add-customer.component.css'
 })
-export class QuoteComponent implements OnInit {
+export class AddCustomerComponent implements OnInit {
 
   defaultText = "Carlos";
   // newAppointmentTitle : any = "";
@@ -148,4 +146,5 @@ export class QuoteComponent implements OnInit {
 
     doc.save(this.customers[x].lName + "-QT-" + `${invoice.slice(0,7)}` + '.pdf');
   }
+
 }
