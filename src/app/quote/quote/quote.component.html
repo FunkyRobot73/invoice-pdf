@@ -33,11 +33,11 @@
          </div>
          <div class="col-md-2">
             <label>Venue Address</label>
-           <input class="form-control" [(ngModel)]="newAddress" placeholder="800 Elms St.">
+           <input class="form-control" [(ngModel)]="newVenueAddress" placeholder="800 Elms St.">
          </div>
          <div class="col-md-2">
             <label>City & Province</label>
-           <input class="form-control" [(ngModel)]="newCity" placeholder="Burlington, Ontario">
+           <input class="form-control" [(ngModel)]="newVenueCity" placeholder="Burlington, Ontario">
          </div>
          <div class="col-md-2">
             <label>Cost</label>
@@ -152,7 +152,7 @@
                 <td>{{customer.email}}</td> 
                 <td>{{customer.date}}</td> 
                 <td>{{customer.phone}}</td> 
-                <td>{{customer.address}}</td>
+                <td>{{customer.venueAddress}}</td>
                 <td>{{customer.cost}}</td>
                <button class="btn btn-danger" (click)="deleteCustomer(i)">DELETE</button>
                <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button>

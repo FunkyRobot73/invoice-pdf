@@ -23,10 +23,10 @@ export class AddCustomerComponent implements OnInit {
   newDate: Date = new Date();
   newEmail : any ="carlos@funky.ca";
   newPhone: string = "416-832-3546";
-  newVenueName: string = "690 Francis Rd.";
+  newVenueName: string = "Carmens";
   newVenueAddress: string = "690 Francis Rd.";
   newVenueCity: string = "Burlington";
-  newIndoor: string = "3-Hour Photo Booth (Gold Package)";
+  newIndoor: string = "Indoor";
   newService: string = "3-Hour Photo Booth (Gold Package)";
   newTimeStart: Date = new Date();
   newTimeEnd: Date = new Date();
@@ -37,10 +37,10 @@ export class AddCustomerComponent implements OnInit {
   newDetails02: string = "";
   newDetails03: string = "";
   newDetails04: string = "";
-  newNote: string = "Photo Booth needs Table near Power Outlet"
+  newNote: string = "Let me know if you have any questions or comments"
   newQuoteOrInvoice: string = "";
-  
   newCost: number = 750;
+  newCustId: number = 0;
 
   dataService = inject(DataService)
   title = 'simple-invoice';
@@ -54,22 +54,32 @@ export class AddCustomerComponent implements OnInit {
   addCustomer() {
     if(this.newfName.trim().length && this.newlName){
       let newCustomer: Customer = {
-        custId:Date.now(),
+        
         fName: this.newfName,
         lName: this.newlName,
-        email:this.newEmail,
+        company: this.newCompany,
+        event: this.newEvent,
         date: this.newDate,
+        email:this.newEmail,
         phone: this.newPhone,
-        address: this.newAddress,
-        city: this.newCity,
-        note: this.newNote,
+        venueName: this.newVenueName,
+        venueAddress: this.newVenueAddress,
+        venueCity: this.newVenueCity,
+        indoor: this.newIndoor,
         service: this.newService,
+        timeStart: this.newTimeStart,
+        timeEnd: this.newTimeEnd,
+        status: this.newStatus,
+        payment: this.newPayment,
+        balance: this.newBalance,
         details01: this.newDetails01,
         details02: this.newDetails02,
         details03: this.newDetails03,
         details04: this.newDetails04,
+        note: this.newNote,
         quoteOrInvoice: this.newQuoteOrInvoice,
-        cost: this.newCost
+        cost: this.newCost,
+        custId: this.newCustId
       }
 
       this.customers.push(newCustomer);
@@ -124,8 +134,8 @@ export class AddCustomerComponent implements OnInit {
     doc.text(`${this.customers[x].date}`,150, 36);
     doc.text(`${this.customers[x].fName}`, 10, 40);
     doc.text(`${this.customers[x].lName}`, 10, 46);
-    doc.text(`${this.customers[x].address}`, 10, 52);
-    doc.text(`${this.customers[x].city}`, 10, 58);
+    doc.text(`${this.customers[x].venueAddress}`, 10, 52);
+    doc.text(`${this.customers[x].venueCity}`, 10, 58);
     doc.line(10, 62, 200, 62) //startx,STARTy,endx,ENDy
     doc.line(10, 63, 200, 63) //startx,STARTy,endx,ENDy
     doc.setFontSize(10);

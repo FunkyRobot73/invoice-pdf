@@ -83,11 +83,11 @@
 
     <div class="col-md-4">
       <label>Time Start:</label>
-     <input class="form-control" [(ngModel)]="newTimeStart">
+     <input class="form-control" [(ngModel)]="newTimeStart" type="time" >
     </div>
     <div class="col-md-4">
         <label>Time End:</label>
-       <input class="form-control" [(ngModel)]="newTimeEnd">
+       <input class="form-control" [(ngModel)]="newTimeEnd" type="time" >
       </div>
 
       <div class="col-md-12">
@@ -119,11 +119,11 @@
                  
             <td>{{customer.fName}}</td> 
             <td>{{customer.lName}} </td>  
-            <td>{{customer.custId}}</td>  
+            <td>{{customer.company}}</td>  
             <td>{{customer.email}}</td> 
             <td>{{customer.date}}</td> 
             <td>{{customer.phone}}</td> 
-            <td>{{customer.address}}</td>
+            <td>{{customer.balance}}</td>
             <td>{{customer.cost}}</td>
            <button class="btn btn-danger" (click)="deleteCustomer(i)">DELETE</button>
            <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button>
