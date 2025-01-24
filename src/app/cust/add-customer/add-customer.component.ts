@@ -5,6 +5,7 @@ import { DataService } from '../../data.service';
 import { Customer } from '../../models/customer';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
+import { Timestamp } from 'rxjs';
 
 @Component({
   selector: 'app-add-customer',
@@ -14,25 +15,31 @@ import { NgFor } from '@angular/common';
 })
 export class AddCustomerComponent implements OnInit {
 
-  defaultText = "Carlos";
-  // newAppointmentTitle : any = "";
-  newfName : any = "Carlito";
-  // newAppointmentDate : Date = new Date();
-  newlName : any = "Funky Robot";
-  // appointments: Appointment[] = [];
-  newEmail : any ="carlos@funky.ca";
-  newDate: Date = new Date();
   customers: Customer[] = [];
+  newfName : any = "Carlito";
+  newlName : any = "Funky Robot";
+  newCompany: string = "";
+  newEvent: string = "";
+  newDate: Date = new Date();
+  newEmail : any ="carlos@funky.ca";
   newPhone: string = "416-832-3546";
-  newAddress: string = "690 Francis Rd.";
-  newCity: string = "Burlington";
-  newNote: string = "Photo Booth needs Table near Power Outlet"
+  newVenueName: string = "690 Francis Rd.";
+  newVenueAddress: string = "690 Francis Rd.";
+  newVenueCity: string = "Burlington";
+  newIndoor: string = "3-Hour Photo Booth (Gold Package)";
   newService: string = "3-Hour Photo Booth (Gold Package)";
+  newTimeStart: Date = new Date();
+  newTimeEnd: Date = new Date();
+  newStatus: string = "";
+  newPayment: number = 0;
+  newBalance: number = 0;
   newDetails01: string = "";
   newDetails02: string = "";
   newDetails03: string = "";
   newDetails04: string = "";
+  newNote: string = "Photo Booth needs Table near Power Outlet"
   newQuoteOrInvoice: string = "";
+  
   newCost: number = 750;
 
   dataService = inject(DataService)
