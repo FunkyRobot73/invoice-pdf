@@ -17,8 +17,8 @@ export class AddCustomerComponent implements OnInit {
 
   customers: Customer[] = [];
   newfName : any = "Carlito";
-  newlName : any = "Funky Robot";
-  newCompany: string = "";
+  newlName : any = "Sousa";
+  newCompany: string = "Funky Robot";
   newEvent: string = "";
   newDate: Date = new Date();
   newEmail : any ="carlos@funky.ca";
