@@ -27,7 +27,7 @@ export class QuoteComponent implements OnInit {
   newCompany: string = "";
   newEvent: string = "";
   newDate: Date = new Date();
-  newEmail : any ="carlos@funky.ca";
+  newEmail : any ="carlos@funkyrobot.ca";
   newPhone: string = "416-832-3546";
   newVenueName: string = "690 Francis Rd.";
   newVenueAddress: string = "690 Francis Rd.";
@@ -37,7 +37,7 @@ export class QuoteComponent implements OnInit {
   newTimeStart: Date = new Date();
   newTimeEnd: Date = new Date();
   newStatus: string = "";
-  newPayment: number = 0;
+  newPayment: string = "";
   newBalance: number = 0;
   newDetails01: string = "";
   newDetails02: string = "";
@@ -46,7 +46,7 @@ export class QuoteComponent implements OnInit {
   newNote: string = "Photo Booth needs Table near Power Outlet"
   newQuoteOrInvoice: string = "";
   newCost: number = 750;
-  newCustId: number = 0;
+  newQuoteId: number = 0;
 
   dataService = inject(DataService)
   title = 'simple-invoice';
@@ -84,7 +84,7 @@ export class QuoteComponent implements OnInit {
         note: this.newNote,
         quoteOrInvoice: this.newQuoteOrInvoice,
         cost: this.newCost,
-        custId: this.newCustId
+        quoteId: this.newQuoteId
       }
 
       this.customers.push(newCustomer);
@@ -101,27 +101,27 @@ export class QuoteComponent implements OnInit {
     localStorage.setItem("customers", JSON.stringify(this.customers))
   }
 
-  generatePDF(buttonElement: any) {
-    const doc = new jsPDF();
-    let fileName = buttonElement.textContent;
-    doc.setFont('helvectica');
-    doc.setFontSize(12);
-    doc.addImage(this.logo, "WEBP", 10, 10, 25, 25);
-    doc.text(`${this.dataService.funkyData.name}`, 40, 18);
-    doc.text(`${this.dataService.funkyData.email}`, 40, 26);
-    doc.setFontSize(24);
-    doc.text(`# ${this.customers[0].custId}`, 150, 18);
-    doc.setFontSize(12);
-    doc.text(`# ${this.customers[0].custId}`, 160, 30);
-    doc.text(`${this.customers[0].fName}`, 160, 36);
-    doc.text(`${this.customers[0].lName}`, 160, 42);
-    doc.line(20, 25, 60, 25)
-    doc.setLineDashPattern([7, 3, 1, 3], 10);
+  // generatePDF(buttonElement: any) {
+  //   const doc = new jsPDF();
+  //   let fileName = buttonElement.textContent;
+  //   doc.setFont('helvectica');
+  //   doc.setFontSize(12);
+  //   doc.addImage(this.logo, "WEBP", 10, 10, 25, 25);
+  //   doc.text(`${this.dataService.funkyData.name}`, 40, 18);
+  //   doc.text(`${this.dataService.funkyData.email}`, 40, 26);
+  //   doc.setFontSize(24);
+  //   doc.text(`# ${this.customers[0].custId}`, 150, 18);
+  //   doc.setFontSize(12);
+  //   doc.text(`# ${this.customers[0].custId}`, 160, 30);
+  //   doc.text(`${this.customers[0].fName}`, 160, 36);
+  //   doc.text(`${this.customers[0].lName}`, 160, 42);
+  //   doc.line(20, 25, 60, 25)
+  //   doc.setLineDashPattern([7, 3, 1, 3], 10);
 
-    doc.text(`${this.customers[0].lName}`, 160, 42);
+  //   doc.text(`${this.customers[0].lName}`, 160, 42);
 
-    doc.save(fileName + "-" + this.date.getTime() + '.pdf');
-  }
+  //   doc.save(fileName + "-" + this.date.getTime() + '.pdf');
+  // }
 
   generatePDF2(buttonElement: any, x:number) {
     const doc = new jsPDF();
@@ -134,7 +134,7 @@ export class QuoteComponent implements OnInit {
     doc.setFontSize(24);
     doc.text(`${this.customers[x].quoteOrInvoice}`, 150, 18);
     doc.setFontSize(12);
-    let invoice = this.customers[x].custId.toString();
+    let invoice = this.customers[x].quoteId.toString();
     doc.text(`# ${invoice.slice(0,7)}`, 150, 30);
     doc.text(`${this.customers[x].date}`,150, 36);
     doc.text(`${this.customers[x].fName}`, 10, 40);

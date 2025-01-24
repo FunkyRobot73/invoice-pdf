@@ -91,14 +91,60 @@
       </div>
 
       <div class="col-md-12">
-        <label>Details</label>
+        <label>Details:</label>
        <input class="form-control" [(ngModel)]="newDetails01">
       </div>
 
+      <div class="col-md-12">
+        <label>Details:</label>
+       <input class="form-control" [(ngModel)]="newDetails02">
+      </div>
+
+      <div class="col-md-12">
+        <label>Details:</label>
+       <input class="form-control" [(ngModel)]="newDetails03">
+      </div>
+
+      <div class="col-md-12">
+        <label>Details:</label>
+       <input class="form-control" [(ngModel)]="newDetails04">
+      </div>
+
      <div class="col-md-12">
-        <label>Note</label>
+        <label>Note:</label>
        <input class="form-control" [(ngModel)]="newNote" placeholder="Just a Note...">
      </div>
+
+     <div class="col-md-3"><label>Quote or Invoice:</label>
+        <select class="form-control" [(ngModel)]="newQuoteOrInvoice">
+          <option>Quote</option>
+          <option>Invoice</option>
+          
+          
+          </select>
+      </div>
+      <div class="col-md-3"><label>Status:</label>
+        <select class="form-control" [(ngModel)]="newStatus">
+          <option>DJ Service</option>
+          <option>Photo Booth</option>
+          <option>DJ & Photo Booth Combo</option>
+          
+          </select>
+      </div>
+
+      <div class="col-md-3"><label>Payment:</label>
+        <label>Balance:</label>
+           <input class="form-control" [(ngModel)]="newBalance">
+      </div>
+
+      <div class="col-md-3"><label>Service:</label>
+        <select class="form-control" [(ngModel)]="newService">
+          <option>Cash</option>
+          <option>X-Transfer</option>
+          <option>VISA</option>
+          
+          </select>
+      </div>
 
 
      <div class="col-md-2">
@@ -117,6 +163,7 @@
           
                
                  
+             <td>{{customer.quoteId}}</td>  
             <td>{{customer.fName}}</td> 
             <td>{{customer.lName}} </td>  
             <td>{{customer.company}}</td>  
