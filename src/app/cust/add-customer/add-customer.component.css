@@ -10,15 +10,3 @@ table {
     display: inline-block;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center; /* centers items horizontally */
-    align-items: center; /* centers items vertically */
-  }
-  
-  .grid-item img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }

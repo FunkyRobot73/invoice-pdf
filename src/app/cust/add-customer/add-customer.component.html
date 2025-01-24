@@ -19,19 +19,24 @@
      </div>
      <div class="col-md-2">
         <label>Last Name</label>
-       <input class="form-control" [(ngModel)]="newfName" placeholder="First Name" type="text" value="{{dataService.funkyData.myname}}">
+       <input class="form-control" [(ngModel)]="newlName" placeholder="First Name" type="text" value="{{dataService.funkyData.myname}}">
      </div>
      <div class="col-md-2">
         <label>Company Name</label>
-       <input class="form-control" [(ngModel)]="newlName" placeholder="Last Name">
+       <input class="form-control" [(ngModel)]="newCompany" placeholder="Last Name">
      </div>
 
      <div class="col-md-2"><label>Event Type:</label>
-        <select class="form-control" [(ngModel)]="newService">
-          <option>3-Hour Photo Booth (Gold Package)</option>
-          <option>DJ Party (5 Hrs) Standard Lights & Mic.</option>
-          <option>DJ & Photo Booth Combo.</option>
-          
+        <select class="form-control" [(ngModel)]="newEvent">
+            <option>Wedding</option>
+            <option>Birthday</option>
+            <option>Holiday Party</option>
+            <option>Family/Religious Event</option>
+            <option>BBQ/Picnic</option>
+            <option>Office Party</option>
+            <option>Grand Opening</option>
+            <option>Customer Appreciation</option>
+            <option>Awards Ceremony</option>
           </select>
       </div>
 
@@ -49,10 +54,10 @@
      </div>
      <div class="col-md-2">
         <label>Venue Name:</label>
-       <input class="form-control" [(ngModel)]="newAddress" placeholder="800 Elms St.">
+       <input class="form-control" [(ngModel)]="newVenueAddress" placeholder="800 Elms St.">
      </div>
      <div class="col-md-2">
-        <label>Venue Address</label>
+        <label>Venue Address:</label>
        <input class="form-control" [(ngModel)]="newAddress" placeholder="800 Elms St.">
      </div>
      
@@ -62,10 +67,10 @@
      </div>
      <div class="col-md-2">
         <label>Indoor or Outdoor?</label>
-       <input class="form-control" [(ngModel)]="newCost" placeholder="750">
+       <input class="form-control" [(ngModel)]="newIndoor" placeholder="750">
      </div>
               
-     <div class="col-md-4"><label>Package:</label>
+     <div class="col-md-4"><label>Service:</label>
       <select class="form-control" [(ngModel)]="newService">
         <option>DJ Service</option>
         <option>Photo Booth</option>
@@ -78,16 +83,16 @@
 
     <div class="col-md-4">
       <label>Time Start:</label>
-     <input class="form-control" [(ngModel)]="newDetails02" placeholder="Package Details">
+     <input class="form-control" [(ngModel)]="newTimeStart">
     </div>
     <div class="col-md-4">
         <label>Time End:</label>
-       <input class="form-control" [(ngModel)]="newDetails02" placeholder="Package Details">
+       <input class="form-control" [(ngModel)]="newTimeEnd">
       </div>
 
       <div class="col-md-12">
         <label>Details</label>
-       <input class="form-control" [(ngModel)]="newDetails01" placeholder="Package Details">
+       <input class="form-control" [(ngModel)]="newDetails01">
       </div>
 
      <div class="col-md-12">
