@@ -40,8 +40,8 @@
        <input class="form-control" [(ngModel)]="newVenueCity" placeholder="Burlington, Ontario">
      </div>
      <div class="col-md-2">
-        <label>Cost</label>
-       <input class="form-control" [(ngModel)]="newCost" placeholder="750">
+        <label>Balance:</label>
+       <input class="form-control" [(ngModel)]="newBalance" placeholder="750">
      </div>
 
      <div class="col-md-2">
@@ -154,7 +154,7 @@
             <td>{{customer.dateEvent}}</td> 
             <td>{{customer.phone}}</td> 
             <td>{{customer.venueAddress}}</td>
-            <td>{{customer.cost}}</td>
+            <td>{{customer.balance}}</td>
            <button class="btn btn-danger" (click)="deleteCustomer(i)">DELETE</button>
            <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button>
        
