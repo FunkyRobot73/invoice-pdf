@@ -91,22 +91,22 @@
       </div>
 
       <div class="col-md-12">
-        <label>Details:</label>
+        <label>Details 1:</label>
        <input class="form-control" [(ngModel)]="newDetails01">
       </div>
 
       <div class="col-md-12">
-        <label>Details:</label>
+        <label>Details 2:</label>
        <input class="form-control" [(ngModel)]="newDetails02">
       </div>
 
       <div class="col-md-12">
-        <label>Details:</label>
+        <label>Details 3:</label>
        <input class="form-control" [(ngModel)]="newDetails03">
       </div>
 
       <div class="col-md-12">
-        <label>Details:</label>
+        <label>Details 4:</label>
        <input class="form-control" [(ngModel)]="newDetails04">
       </div>
 
@@ -125,20 +125,27 @@
       </div>
       <div class="col-md-3"><label>Status:</label>
         <select class="form-control" [(ngModel)]="newStatus">
-          <option>DJ Service</option>
-          <option>Photo Booth</option>
-          <option>DJ & Photo Booth Combo</option>
+          <option>Quote Pending</option>
+          <option>Booked</option>
+          <option>Done & Paid</option>
+          <option>Done & Unpaid</option>
           
           </select>
       </div>
 
-      <div class="col-md-3"><label>Payment:</label>
+      <div class="col-md-3">
         <label>Balance:</label>
            <input class="form-control" [(ngModel)]="newBalance">
       </div>
+      
+      <div class="col-md-3">
+        <label>Payment:</label>
+           <input class="form-control" [(ngModel)]="newBalance">
+      </div>
+      
 
-      <div class="col-md-3"><label>Service:</label>
-        <select class="form-control" [(ngModel)]="newService">
+      <div class="col-md-3"><label>Payment:</label>
+        <select class="form-control" [(ngModel)]="newPayment">
           <option>Cash</option>
           <option>X-Transfer</option>
           <option>VISA</option>
