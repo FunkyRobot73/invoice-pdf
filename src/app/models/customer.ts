@@ -25,6 +25,7 @@ export interface Customer {
         note: string,
         quoteOrInvoice: string,
         cost: string,
-        quoteId: string
+        quoteId: string,
+        paymentType: string
 
 }

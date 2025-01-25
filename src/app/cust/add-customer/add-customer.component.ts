@@ -45,6 +45,7 @@ export class AddCustomerComponent {
   newPayment: string = "0";
   newCost: string = "777";
   newQuoteId: string = "QT-001122";
+  newPaymentType: string = "Cash"
 
   // newCost: number = 750;
   // newQuoteId: number = Date.now();
@@ -102,7 +103,8 @@ export class AddCustomerComponent {
       note: this.newNote,
       quoteOrInvoice: this.newQuoteOrInvoice,
       cost: this.newCost,
-      quoteId: this.newQuoteId
+      quoteId: this.newQuoteId,
+      paymentType: this.newPaymentType
 
 }).subscribe({
         next: (data) => {
@@ -143,7 +145,8 @@ export class AddCustomerComponent {
         note: this.newNote,
         quoteOrInvoice: this.newQuoteOrInvoice,
         cost: this.newCost,
-        quoteId: this.newQuoteId
+        quoteId: this.newQuoteId,
+        paymentType: this.newPaymentType,
       }
 
       this.customers2.push(newCustomer2);
@@ -188,7 +191,7 @@ export class AddCustomerComponent {
     doc.setFont('courier');
     doc.setFontSize(12);
     doc.addImage(this.logo, "WEBP", 10, 10, 25, 25);
-    doc.text(`${this.dataService.funkyData.name}`, 40, 18);
+    doc.text(`${this.dataService.funkyData.funkyName}`, 40, 18);
     doc.text(`${this.dataService.funkyData.email}`, 40, 26);
     doc.setFontSize(24);
     doc.text(`INVOICE`, 150, 18);

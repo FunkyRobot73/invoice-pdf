@@ -41,7 +41,7 @@ const httpOptions = {
 export class AddCustService {
 constructor() { };
 
-  private apiUrl01 = "https://back.funkyrobot.ca/customers";
+  private apiUrl01 = "https://back.funkyrobot.ca/customer";
   private apiUrl02 = "https://back.funkyrobot.ca/addcustomers";
 
   http = inject(HttpClient);

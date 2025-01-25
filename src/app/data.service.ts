@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   funkyData = {
-    name: "Funky Robot Services",
-    myname:"Carlos Sousa",
+    funkyName: "Funky Robot Services",
+    FunkyMyName:"Carlos Sousa",
     email:"carlos@funkyrobot.ca",
     number:"(416) 832-3546",
     address:"690 Francis Rd.",
@@ -17,7 +17,7 @@ export class DataService {
     note:"Please note...  We will need a table & power.",
     message: "Please call or email with any additional questions.",
     invoiceId: "25-01-8081",
-    date: "Jan. 7th, 2025",
+    date: Date(),
     payment:"CASH",
     balance:"$500",
   }

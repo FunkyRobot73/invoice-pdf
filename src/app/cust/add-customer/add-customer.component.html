@@ -140,14 +140,14 @@
       
       <div class="col-md-3">
         <label>Payment:</label>
-           <input class="form-control" [(ngModel)]="newBalance">
+           <input class="form-control" [(ngModel)]="newPayment">
       </div>
       
 
-      <div class="col-md-3"><label>Payment:</label>
-        <select class="form-control" [(ngModel)]="newPayment">
+      <div class="col-md-3"><label>Payment Type:</label>
+        <select class="form-control" [(ngModel)]="newPaymentType">
           <option>Cash</option>
-          <option>X-Transfer</option>
+          <option>e-Transfer</option>
           <option>VISA</option>
           
           </select>
@@ -157,6 +157,9 @@
      <div class="col-md-2">
        <button class="btn btn-primary" (click)="addCustomer()">ADD</button>
        </div>
+       <div class="col-md-2">
+        <button class="btn btn-primary" (click)="addCustomer2()">ADD</button>
+        </div>
    </div>
  </div>
 

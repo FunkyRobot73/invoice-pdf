@@ -47,6 +47,7 @@ export class QuoteComponent implements OnInit {
   newQuoteOrInvoice: string = "";
   newCost: string = "";
   newQuoteId: string = "";
+  newPaymentType: string = "Cash";
 
   dataService = inject(DataService)
   title = 'simple-invoice';
@@ -84,7 +85,8 @@ export class QuoteComponent implements OnInit {
         note: this.newNote,
         quoteOrInvoice: this.newQuoteOrInvoice,
         cost: this.newCost,
-        quoteId: this.newQuoteId
+        quoteId: this.newQuoteId,
+        paymentType: this.newPaymentType
       }
 
       this.customers.push(newCustomer);
@@ -129,7 +131,7 @@ export class QuoteComponent implements OnInit {
     doc.setFont('courier');
     doc.setFontSize(12);
     doc.addImage(this.logo, "WEBP", 10, 10, 25, 25);
-    doc.text(`${this.dataService.funkyData.name}`, 40, 18);
+    doc.text(`${this.dataService.funkyData.funkyName}`, 40, 18);
     doc.text(`${this.dataService.funkyData.email}`, 40, 26);
     doc.setFontSize(24);
     doc.text(`${this.customers[x].quoteOrInvoice}`, 150, 18);
