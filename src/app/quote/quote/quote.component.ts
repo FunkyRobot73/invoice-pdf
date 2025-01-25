@@ -45,8 +45,8 @@ export class QuoteComponent implements OnInit {
   newDetails04: string = "";
   newNote: string = "Photo Booth needs Table near Power Outlet"
   newQuoteOrInvoice: string = "";
-  newCost: number = 750;
-  newQuoteId: number = 0;
+  newCost: string = "";
+  newQuoteId: string = "";
 
   dataService = inject(DataService)
   title = 'simple-invoice';

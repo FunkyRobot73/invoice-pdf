@@ -1,29 +1,31 @@
 import { Component, NgModule, OnInit, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { jsPDF } from 'jspdf' ;
+import { AddCustService } from '../../services/add-cust.service';
 import { DataService } from '../../data.service';
 import { Customer } from '../../models/customer';
 import { FormsModule } from '@angular/forms';
-import { NgFor } from '@angular/common';
-import { Timestamp } from 'rxjs';
+import { NgFor, CommonModule } from '@angular/common';
+
+
+
 
 @Component({
   selector: 'app-add-customer',
-  imports: [FormsModule, NgFor],
+  imports: [CommonModule, FormsModule, NgFor],
   templateUrl: './add-customer.component.html',
   styleUrl: './add-customer.component.css'
 })
-export class AddCustomerComponent implements OnInit {
+export class AddCustomerComponent {
 
-  customers: Customer[] = [];
+  
 
 
-  newfName : any = "Carlito";
-  newlName : any = "Sousa";
+  newfName : string = "Carlito";
+  newlName : string = "Sousa";
   newCompany: string = "Funky Robot";
   newEvent: string = "";
   newDate: Date = new Date();
-  newEmail : any ="carlos@funky.ca";
+  newEmail : string ="carlos@funky.ca";
   newPhone: string = "416-832-3546";
   newVenueName: string = "Carmens";
   newVenueAddress: string = "690 Francis Rd.";
@@ -41,23 +43,84 @@ export class AddCustomerComponent implements OnInit {
   newDetails04: string = "";
   newNote: string = "Let me know if you have any questions or comments"
   newQuoteOrInvoice: string = "";
-  newCost: number = 750;
-  newQuoteId: number = Date.now();
+  newCost: string = "777";
+  newQuoteId: string = "quoterid";
+
+  // newCost: number = 750;
+  // newQuoteId: number = Date.now();
 
   //  Date.now()
 
+  customerService = inject(AddCustService)
   dataService = inject(DataService)
+  customers: Customer[] = [];
+  customers2: Customer[] = [];
+
   title = 'simple-invoice';
   date  : Date = new Date();
   logo = "images/funky.webp"
-  
-  ngOnInit(): void {
-    
+
+  constructor() {
+
+    this.customerService.getCustomers().subscribe({
+      next: (data) => {
+        this.customers = data;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+
   }
 
+  
+
   addCustomer() {
+    
+    this.customerService.createCustomer({
+
+      fName: this.newfName,
+      lName: this.newlName,
+      company: this.newCompany,
+      event: this.newEvent,
+      date: this.newDate,
+      email:this.newEmail,
+      phone: this.newPhone,
+      venueName: this.newVenueName,
+      venueAddress: this.newVenueAddress,
+      venueCity: this.newVenueCity,
+      indoor: this.newIndoor,
+      service: this.newService,
+      timeStart: this.newTimeStart,
+      timeEnd: this.newTimeEnd,
+      status: this.newStatus,
+      payment: this.newPayment,
+      balance: this.newBalance,
+      details01: this.newDetails01,
+      details02: this.newDetails02,
+      details03: this.newDetails03,
+      details04: this.newDetails04,
+      note: this.newNote,
+      quoteOrInvoice: this.newQuoteOrInvoice,
+      // cost: this.newCost,
+      // quoteId: this.newQuoteId
+
+
+
+    }).subscribe({
+        next: (data) => {
+          console.log(data);
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      })
+
+  };
+
+  addCustomer2() {
     if(this.newfName.trim().length && this.newlName){
-      let newCustomer: Customer = {
+      let newCustomer2: Customer = {
         
         fName: this.newfName,
         lName: this.newlName,
@@ -86,12 +149,12 @@ export class AddCustomerComponent implements OnInit {
         quoteId: this.newQuoteId
       }
 
-      this.customers.push(newCustomer);
+      this.customers2.push(newCustomer2);
 
       
 
-      // alert(this.customers.length);
-      localStorage.setItem("customers", JSON.stringify(this.customers))
+      alert(this.customers2.length);
+      localStorage.setItem("customers", JSON.stringify(this.customers2))
     }
   }
 

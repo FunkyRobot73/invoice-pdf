@@ -24,7 +24,7 @@ export interface Customer {
         details04: string,
         note: string,
         quoteOrInvoice: string,
-        cost: number,
-        quoteId: number
+        cost: string,
+        quoteId: string
 
 }
