@@ -1,0 +1,172 @@
+
+   
+   <div class="container">
+    <div class="card mt-1 p-3 bg-card">
+        <div class="horizontal">
+            <h2 class="text-center">
+            <img class="logo" src="images/funky-l.png">Create New Simple Quote/Invoice with PDF
+            <img class="logo" src="images/price-quote.jpg">
+            </h2>
+        </div>
+    
+<div class="row mt-3 bg-card">
+
+     <div class="col-md-2">
+        <label>Name</label>
+       <input class="form-control" [(ngModel)]="newfName" placeholder="First Name" type="text">
+     </div>
+     <div class="col-md-2">
+        <label>Company Name</label>
+       <input class="form-control" [(ngModel)]="newlName" placeholder="Last Name">
+     </div>
+     <div class="col-md-2">
+        <label>Date</label>
+       <input class="form-control" [(ngModel)]="newDate" type="text" placeholder="Appointment Date">
+     </div>
+     <div class="col-md-2">
+        <label>Email</label>
+       <input class="form-control" [(ngModel)]="newEmail" placeholder="carlos@funkyrobot.ca">
+     </div>
+     <div class="col-md-2">
+        <label>Phone</label>
+       <input class="form-control" [(ngModel)]="newPhone" placeholder="(416) 832-3546">
+     </div>
+     <div class="col-md-2">
+        <label>Venue Address</label>
+       <input class="form-control" [(ngModel)]="newVenueAddress" placeholder="800 Elms St.">
+     </div>
+     <div class="col-md-2">
+        <label>City & Province</label>
+       <input class="form-control" [(ngModel)]="newVenueCity" placeholder="Burlington, Ontario">
+     </div>
+     <div class="col-md-2">
+        <label>Cost</label>
+       <input class="form-control" [(ngModel)]="newCost" placeholder="750">
+     </div>
+
+     <div class="col-md-2">
+      <label>Quote or Invoice</label>
+     <select class="form-control" [(ngModel)]="newQuoteOrInvoice" placeholder="750">
+      <option>Quote</option>
+      <option>Invoice</option>
+      </select>
+   </div>
+              
+     <div class="col-md-12"><label>Package:</label>
+      <select class="form-control" [(ngModel)]="newService">
+        <option>3-Hour Photo Booth (Gold Package)</option>
+        <option>4-Hour Photo Booth (Gold Package)</option>
+        <option>5-Hour Photo Booth (Gold Package)</option>
+        <option>DJ Party (5 Hrs) Standard Lights & Wireless Mic.</option>
+        <option>DJ Wedding (8 Hrs) Standard Lights & Wireless Mic.</option>
+        <option>DJ & Photo Booth Combo.</option>
+        <option>DJ & Photo Booth Combo (Outdoor).</option>
+        <option>DJ & Photo Booth Combo (Outdoor with Kids).</option>
+        </select>
+    </div>
+
+    <div class="col-md-12">
+      <label>Details #1</label>
+     <input class="form-control" [(ngModel)]="newDetails01" placeholder="Package Details">
+    </div>
+
+    <div class="col-md-12">
+      <label>Details #2</label>
+     <select class="form-control" [(ngModel)]="newDetails02">
+        <option>- Customized play-list to suite your requirements</option>
+        <option>- Emcee Service</option>
+        <option>- High Quality Sound System</option>
+        <option>- Quick Setup & removal time</option>
+        <option>- Sound activated LED & Intelligent lighting</option>
+        <option>-</option>
+        <option>- Fun Props for Guests</option>
+        <option>- Elegant Silver Backdrop</option>
+        <option>- Classic Strip Design w/ 2 Printed Copies</option>
+        <option>- Online Digital Copies</option>
+        <option>- Guest Book with Additional Print</option>
+        
+        </select>
+    </div>
+
+    
+
+    <div class="col-md-12">
+      <label>Details #3</label>
+     <select class="form-control" [(ngModel)]="newDetails03">
+      <option>- Customized play-list to suite your requirements</option>
+      <option>- Emcee Service</option>
+      <option>- High Quality Sound System</option>
+      <option>- Quick Setup & removal time</option>
+      <option>- Sound activated LED & Intelligent lighting</option>
+      <option>-</option>
+      <option>- Fun Props for Guests</option>
+      <option>- Elegant Silver Backdrop</option>
+      <option>- Classic Strip Design w/ 2 Printed Copies</option>
+      <option>- Online Digital Copies</option>
+      <option>- Guest Book with Additional Print</option>
+        
+        </select>
+    </div>
+
+    <div class="col-md-12">
+      <label>Details #4</label>
+     <select class="form-control" [(ngModel)]="newDetails04">
+      <option>- Customized play-list to suite your requirements</option>
+      <option>- Emcee Service</option>
+      <option>- High Quality Sound System</option>
+      <option>- Quick Setup & removal time</option>
+      <option>- Sound activated LED & Intelligent lighting</option>
+      <option>-</option>
+      <option>- Fun Props for Guests</option>
+      <option>- Elegant Silver Backdrop</option>
+      <option>- Classic Strip Design w/ 2 Printed Copies</option>
+      <option>- Online Digital Copies</option>
+      <option>- Guest Book with Additional Print</option>
+        
+        </select>
+    </div>
+
+     <div class="col-md-12">
+        <label>Note</label>
+       <input class="form-control" [(ngModel)]="newNote" placeholder="Just a Note...">
+     </div>
+     <div class="col-md-2">
+       <button class="btn btn-primary" (click)="addCustomer()">ADD</button>
+       </div>
+   </div>
+ </div>
+
+ 
+ <div class="container card mt-2">
+   <table class="mt-2 mb-2">
+     <ul class="list-group mt-3">
+       <tr>
+         <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let customer of customers; index as i">
+           
+          
+               
+                 
+           <td>{{customer.quoteId}}</td>  
+            <td>{{customer.fName}}</td> 
+            <td>{{customer.lName}} </td>
+            <td>{{customer.company}}</td>  
+            <td>{{customer.email}}</td> 
+            <td>{{customer.dateEvent}}</td> 
+            <td>{{customer.phone}}</td> 
+            <td>{{customer.venueAddress}}</td>
+            <td>{{customer.cost}}</td>
+           <button class="btn btn-danger" (click)="deleteCustomer(i)">DELETE</button>
+           <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button>
+       
+ </li>
+       </tr>
+   </ul>
+   </table>
+ </div>
+</div>
+
+
+
+
+
+

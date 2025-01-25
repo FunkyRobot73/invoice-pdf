@@ -6,15 +6,14 @@ import { Customer } from '../../models/customer';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 
-
-
 @Component({
-  selector: 'app-quote',
+  selector: 'app-simple-quote',
   imports: [FormsModule, NgFor],
-  templateUrl: './quote.component.html',
-  styleUrl: './quote.component.css'
+  templateUrl: './simple-quote.component.html',
+  styleUrl: './simple-quote.component.css'
 })
-export class QuoteComponent implements OnInit {
+export class SimpleQuoteComponent implements OnInit {
+  
 
   // newAppointmentTitle : any = "";
   // appointments: Appointment[] = [];
@@ -103,27 +102,7 @@ export class QuoteComponent implements OnInit {
     localStorage.setItem("customers", JSON.stringify(this.customers))
   }
 
-  // generatePDF(buttonElement: any) {
-  //   const doc = new jsPDF();
-  //   let fileName = buttonElement.textContent;
-  //   doc.setFont('helvectica');
-  //   doc.setFontSize(12);
-  //   doc.addImage(this.logo, "WEBP", 10, 10, 25, 25);
-  //   doc.text(`${this.dataService.funkyData.name}`, 40, 18);
-  //   doc.text(`${this.dataService.funkyData.email}`, 40, 26);
-  //   doc.setFontSize(24);
-  //   doc.text(`# ${this.customers[0].custId}`, 150, 18);
-  //   doc.setFontSize(12);
-  //   doc.text(`# ${this.customers[0].custId}`, 160, 30);
-  //   doc.text(`${this.customers[0].fName}`, 160, 36);
-  //   doc.text(`${this.customers[0].lName}`, 160, 42);
-  //   doc.line(20, 25, 60, 25)
-  //   doc.setLineDashPattern([7, 3, 1, 3], 10);
-
-  //   doc.text(`${this.customers[0].lName}`, 160, 42);
-
-  //   doc.save(fileName + "-" + this.date.getTime() + '.pdf');
-  // }
+  
 
   generatePDF2(buttonElement: any, x:number) {
     const doc = new jsPDF();
@@ -172,4 +151,5 @@ export class QuoteComponent implements OnInit {
 
     doc.save(this.customers[x].lName + "-QT-" + `${invoice.slice(0,7)}` + '.pdf');
   }
+
 }

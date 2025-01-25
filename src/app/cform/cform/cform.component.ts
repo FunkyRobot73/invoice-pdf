@@ -2,7 +2,6 @@ import { Component, OnInit, Pipe } from '@angular/core';
 import { Photobooth } from '../../models/photobooth';
 import { CurrencyPipe, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { QuoteComponent } from "../../quote/quote/quote.component";
 
 
 
