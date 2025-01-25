@@ -14,15 +14,15 @@
 <div class="row mt-3 bg-card">
 
      <div class="col-md-2">
-        <label>First Name</label>
-       <input class="form-control" [(ngModel)]="newfName" placeholder="First Name" type="text">
+        <label>First Name:</label>
+       <input class="form-control" [(ngModel)]="newfName" type="text">
      </div>
      <div class="col-md-2">
-        <label>Last Name</label>
-       <input class="form-control" [(ngModel)]="newlName" placeholder="First Name" type="text">
+        <label>Last Name:</label>
+       <input class="form-control" [(ngModel)]="newlName" type="text">
      </div>
      <div class="col-md-2">
-        <label>Company Name</label>
+        <label>Company Name:</label>
        <input class="form-control" [(ngModel)]="newCompany" placeholder="Last Name">
      </div>
 
@@ -41,15 +41,15 @@
       </div>
 
      <div class="col-md-2">
-        <label>Date</label>
-       <input class="form-control" [(ngModel)]="newDate" type="date" placeholder="Appointment Date">
+        <label>Date:</label>
+       <input class="form-control" [(ngModel)]="newDate">
      </div>
      <div class="col-md-2">
-        <label>Email</label>
+        <label>Email:</label>
        <input class="form-control" [(ngModel)]="newEmail" placeholder="carlos@funkyrobot.ca">
      </div>
      <div class="col-md-2">
-        <label>Phone</label>
+        <label>Phone:</label>
        <input class="form-control" [(ngModel)]="newPhone" placeholder="(416) 832-3546">
      </div>
      <div class="col-md-2">
@@ -83,11 +83,11 @@
 
     <div class="col-md-4">
       <label>Time Start:</label>
-     <input class="form-control" [(ngModel)]="newTimeStart" type="time" >
+     <input class="form-control" [(ngModel)]="newTimeStart"  type="text">
     </div>
     <div class="col-md-4">
         <label>Time End:</label>
-       <input class="form-control" [(ngModel)]="newTimeEnd" type="time" >
+       <input class="form-control" [(ngModel)]="newTimeEnd"  type="text">
       </div>
 
       <div class="col-md-12">
@@ -148,7 +148,7 @@
 
 
      <div class="col-md-2">
-       <button class="btn btn-primary" (click)="addCustomer2()">ADD</button>
+       <button class="btn btn-primary" (click)="addCustomer()">ADD</button>
        </div>
    </div>
  </div>
@@ -168,7 +168,7 @@
             <td>{{customer.lName}} </td>  
             <td>{{customer.company}}</td>  
             <td>{{customer.email}}</td> 
-            <td>{{customer.date}}</td> 
+            <td>{{customer.dateEvent}}</td> 
             <td>{{customer.phone}}</td> 
             <td>{{customer.balance}}</td>
             <td>{{customer.cost}}</td>

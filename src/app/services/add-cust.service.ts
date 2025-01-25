@@ -6,31 +6,31 @@ import { catchError, throwError } from 'rxjs';
 const httpOptions = {
   headers: new HttpHeaders({
 
-    "fname" : "Carlito",
-    "lname" : "Sousa",
-    "company": "Funky Robot",
-    "event": "",
-    "date": "",
-    "email" : "carlos@funky.ca",
-    "phone": "416-832-3546",
-    "venueName": "Carmens",
-    "venueAddress": "690 Francis Rd.",
-    "venueCity": "Burlington",
-    "indoor": "Indoor",
-    "service": "3-Hour Photo Booth (Gold Package)",
-    "timeStart": "",
-    "timeEnd": "",
-    "status": "",
-    "payment": "",
-    "balance": 0,
-    "details01": "",
-    "details02": "",
-    "details03": "",
-    "details04": "",
-    "note": "Let me know if you have any questions or comments",
-    "quoteOrInvoice": "",
-    "cost": "777",
-    "quoteId": "quoteridd",
+    "newfName" : "Carlito",
+    "newlName" : "Sousa",
+    "newCompany": "Funky Robot",
+    "newEvent": "",
+    "newDate": "",
+    "newEmail" : "carlos@funky.ca",
+    "newPhone": "416-832-3546",
+    "newVenueName": "Carmens",
+    "newVenueAddress": "690 Francis Rd.",
+    "newVenueCity": "Burlington",
+    "newIndoor": "Indoor",
+    "newService": "3-Hour Photo Booth (Gold Package)",
+    "newTimeStart": "",
+    "newTimeEnd": "",
+    "newStatus": "",
+    "newPayment": "",
+    "newBalance": 0,
+    "newDetails01": "",
+    "newDetails02": "",
+    "newDetails03": "",
+    "newDetails04": "",
+    "newNote": "Let me know if you have any questions or comments",
+    "newQuoteOrInvoice": "",
+    "newCost": "777",
+    "newQuoteId": "quoteridd",
 
   })
 }
@@ -58,5 +58,13 @@ constructor() { };
   createCustomer(post: any) {
     return this.http.post(this.apiUrl02, post, httpOptions);
   }
+
+  createCustomer2(x:any) {
+
+    this.http.post("https://back.funkyrobot.ca/addcustomers", { name: x }).subscribe(data => {
+      console.log(data);
+    });
+
+  };
 
 };

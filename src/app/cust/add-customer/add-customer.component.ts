@@ -20,29 +20,29 @@ export class AddCustomerComponent {
   
 
 
-  newfName : string = "Carlito";
+  newfName : string = "Adele";
   newlName : string = "Sousa";
-  newCompany: string = "Funky Robot";
-  newEvent: string = "";
-  newDate: Date = new Date();
-  newEmail : string ="carlos@funky.ca";
+  newCompany: string = "Super Kid";
+  newEvent: string = "poop";
+  newDate: string = "poop";
+  newEmail : string ="adele@funky.ca";
   newPhone: string = "416-832-3546";
-  newVenueName: string = "Carmens";
-  newVenueAddress: string = "690 Francis Rd.";
-  newVenueCity: string = "Burlington";
+  newVenueName: string = "Adeles Place";
+  newVenueAddress: string = "24 September Rd.";
+  newVenueCity: string = "Hamilton";
   newIndoor: string = "Indoor";
-  newService: string = "3-Hour Photo Booth (Gold Package)";
-  newTimeStart: Date = new Date();
-  newTimeEnd: Date = new Date();
-  newStatus: string = "";
-  newPayment: string = "";
+  newService: string = "I Love Paw PAtrol";
+  newTimeStart: string = "poop";
+  newTimeEnd: string = "poop";
+  newStatus: string = "poop";
+  newPayment: string = "poop";
   newBalance: number = 0;
-  newDetails01: string = "";
-  newDetails02: string = "";
-  newDetails03: string = "";
-  newDetails04: string = "";
+  newDetails01: string = "poop";
+  newDetails02: string = "poop";
+  newDetails03: string = "poop";
+  newDetails04: string = "poop";
   newNote: string = "Let me know if you have any questions or comments"
-  newQuoteOrInvoice: string = "";
+  newQuoteOrInvoice: string = "poop";
   newCost: string = "777";
   newQuoteId: string = "quoterid";
 
@@ -57,7 +57,7 @@ export class AddCustomerComponent {
   customers2: Customer[] = [];
 
   title = 'simple-invoice';
-  date  : Date = new Date();
+  dateEvent  = "date";
   logo = "images/funky.webp"
 
   constructor() {
@@ -76,14 +76,13 @@ export class AddCustomerComponent {
   
 
   addCustomer() {
-    
     this.customerService.createCustomer({
 
       fName: this.newfName,
       lName: this.newlName,
       company: this.newCompany,
       event: this.newEvent,
-      date: this.newDate,
+      dateEvent: this.newDate,
       email:this.newEmail,
       phone: this.newPhone,
       venueName: this.newVenueName,
@@ -102,12 +101,10 @@ export class AddCustomerComponent {
       details04: this.newDetails04,
       note: this.newNote,
       quoteOrInvoice: this.newQuoteOrInvoice,
-      // cost: this.newCost,
-      // quoteId: this.newQuoteId
+      cost: this.newCost,
+      quoteId: this.newQuoteId
 
-
-
-    }).subscribe({
+}).subscribe({
         next: (data) => {
           console.log(data);
         },
@@ -126,7 +123,7 @@ export class AddCustomerComponent {
         lName: this.newlName,
         company: this.newCompany,
         event: this.newEvent,
-        date: this.newDate,
+        dateEvent: this.newDate,
         email:this.newEmail,
         phone: this.newPhone,
         venueName: this.newVenueName,
@@ -198,7 +195,7 @@ export class AddCustomerComponent {
     doc.setFontSize(12);
     let invoice = this.customers[x].quoteId.toString();
     doc.text(`# ${invoice.slice(0,7)}`, 150, 30);
-    doc.text(`${this.customers[x].date}`,150, 36);
+    doc.text(`${this.customers[x].dateEvent}`,150, 36);
     doc.text(`${this.customers[x].fName}`, 10, 40);
     doc.text(`${this.customers[x].lName}`, 10, 46);
     doc.text(`${this.customers[x].venueAddress}`, 10, 52);
