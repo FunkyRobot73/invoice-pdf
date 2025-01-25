@@ -6,20 +6,20 @@ import { Injectable } from '@angular/core';
 export class DataService {
 
   funkyData = {
-    funkyName: "Funky Robot Services",
-    FunkyMyName:"Carlos Sousa",
-    email:"carlos@funkyrobot.ca",
-    number:"(416) 832-3546",
-    address:"690 Francis Rd.",
-    city:"Burlington",
-    province:"ON",
-    postal:"L7T 3X7",
-    note:"Please note...  We will need a table & power.",
-    message: "Please call or email with any additional questions.",
-    invoiceId: "25-01-8081",
-    date: Date(),
-    payment:"CASH",
-    balance:"$500",
+    funkyName: "www.FunkyRobot.ca",
+    funkyMyName:"Carlos Sousa",
+    funkyEmail:"carlos@funkyrobot.ca",
+    funkyNumber:"(416) 832-3546",
+    funkyAddress:"690 Francis Rd.",
+    funkyCity:"Burlington",
+    funkyProvince:"ON",
+    funkyPostal:"L7T 3X7",
+    funkyNote:"Please note...  We will need a table & power.",
+    funkyMessage: "Please call or email with any additional questions.",
+    funkyInvoiceId: "25-01-8081",
+    funkyDate: Date(),
+    FunkyPayment:"CASH",
+    funkyBalance:"$500",
   }
 
   constructor() { }

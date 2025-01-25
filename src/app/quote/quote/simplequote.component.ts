@@ -6,14 +6,15 @@ import { Customer } from '../../models/customer';
 import { FormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 
+
+
 @Component({
-  selector: 'app-simple-quote',
+  selector: 'app-quote',
   imports: [FormsModule, NgFor],
-  templateUrl: './simple-quote.component.html',
-  styleUrl: './simple-quote.component.css'
+  templateUrl: './simplequote.component.html',
+  styleUrl: './simplequote.component.css'
 })
-export class SimpleQuoteComponent implements OnInit {
-  
+export class QuoteComponent implements OnInit {
 
   // newAppointmentTitle : any = "";
   // appointments: Appointment[] = [];
@@ -110,19 +111,18 @@ export class SimpleQuoteComponent implements OnInit {
     doc.setFont('courier');
     doc.setFontSize(12);
     doc.addImage(this.logo, "WEBP", 10, 10, 25, 25);
-    doc.text(`${this.dataService.funkyData.funkyName}`, 40, 16);
-    doc.text(`${this.dataService.funkyData.funkyEmail}`, 40, 22);
-    doc.text(`${this.dataService.funkyData.funkyNumber}`, 40, 28);
+    doc.text(`${this.dataService.funkyData.funkyName}`, 40, 18);
+    doc.text(`${this.dataService.funkyData.funkyEmail}`, 40, 26);
     doc.setFontSize(24);
     doc.text(`${this.customers[x].quoteOrInvoice}`, 150, 18);
     doc.setFontSize(12);
     let invoice = this.customers[x].quoteId.toString();
     doc.text(`# ${invoice.slice(0,7)}`, 150, 30);
     doc.text(`${this.customers[x].dateEvent}`,150, 36);
-    doc.text(`${this.customers[x].fName}`, 12, 40);
-    doc.text(`${this.customers[x].email}`, 12, 46);
-    doc.text(`${this.customers[x].venueAddress}`, 12, 52);
-    doc.text(`${this.customers[x].venueCity}`, 12, 58);
+    doc.text(`${this.customers[x].fName}`, 10, 40);
+    doc.text(`${this.customers[x].lName}`, 10, 46);
+    doc.text(`${this.customers[x].venueAddress}`, 10, 52);
+    doc.text(`${this.customers[x].venueAddress}`, 10, 58);
     doc.line(10, 62, 200, 62) //startx,STARTy,endx,ENDy
     doc.line(10, 63, 200, 63) //startx,STARTy,endx,ENDy
     doc.setFontSize(10);
@@ -152,5 +152,4 @@ export class SimpleQuoteComponent implements OnInit {
 
     doc.save(this.customers[x].lName + "-QT-" + `${invoice.slice(0,7)}` + '.pdf');
   }
-
 }

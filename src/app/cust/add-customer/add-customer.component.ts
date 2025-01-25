@@ -132,7 +132,7 @@ export class AddCustomerComponent {
     doc.setFontSize(12);
     doc.addImage(this.logo, "WEBP", 10, 10, 25, 25);
     doc.text(`${this.dataService.funkyData.funkyName}`, 40, 18);
-    doc.text(`${this.dataService.funkyData.email}`, 40, 26);
+    doc.text(`${this.dataService.funkyData.funkyEmail}`, 40, 26);
     doc.setFontSize(24);
     doc.text(`${this.customers[x].quoteOrInvoice}`, 150, 18);
     doc.setFontSize(12);
