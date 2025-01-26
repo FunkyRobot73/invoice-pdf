@@ -37,13 +37,13 @@ export class SimpleQuoteComponent implements OnInit {
   newTimeEnd: string = "";
   newStatus: string = "";
   newPayment: string = "";
-  newBalance: number = 0;
-  newDetails01: string = "";
-  newDetails02: string = "";
-  newDetails03: string = "";
-  newDetails04: string = "";
+  newBalance: number = 995;
+  newDetails01: string = "Photo Booth or DJ for Wedding (8-11pm)";
+  newDetails02: string = "- High Quality Sound System";
+  newDetails03: string = "- Sound activated LED & Intelligent lighting";
+  newDetails04: string = "- Customized play-list to suite your requirements";
   newNote: string = "Photo Booth needs Table near Power Outlet"
-  newQuoteOrInvoice: string = "";
+  newQuoteOrInvoice: string = "Quote";
   newCost: string = "";
   newQuoteId: string = "";
   newPaymentType: string = "Cash";
@@ -116,19 +116,23 @@ export class SimpleQuoteComponent implements OnInit {
     doc.setFontSize(24);
     doc.text(`${this.customers[x].quoteOrInvoice}`, 150, 18);
     doc.setFontSize(12);
-    let invoice = this.customers[x].quoteId.toString();
-    doc.text(`# ${invoice.slice(0,7)}`, 150, 30);
-    doc.text(`${this.customers[x].dateEvent}`,150, 36);
-    doc.text(`${this.customers[x].fName}`, 12, 40);
-    doc.text(`${this.customers[x].email}`, 12, 46);
-    doc.text(`${this.customers[x].venueAddress}`, 12, 52);
-    doc.text(`${this.customers[x].venueCity}`, 12, 58);
+    let todayDate = Math.floor(Date.now() / 1000);
+    let invoice = todayDate.toString();
+    doc.text(`# ${this.newQuoteOrInvoice.slice(0,1)}-${invoice}`, 150, 30);
+    doc.text(`Date: ${Date().toString}`,150, 36);
+    doc.text(`Event: ${this.customers[x].dateEvent}`,150, 42);
+
+
+    doc.text(`${this.customers[x].fName}`, 15, 40);
+    doc.text(`${this.customers[x].email}`, 15, 46);
+    doc.text(`${this.customers[x].venueAddress}`, 15, 52);
+    doc.text(`${this.customers[x].venueCity}`, 15, 58);
     doc.line(10, 62, 200, 62) //startx,STARTy,endx,ENDy
     doc.line(10, 63, 200, 63) //startx,STARTy,endx,ENDy
     doc.setFontSize(10);
     doc.setFont('helvectica');
     
-    doc.text(`Services`, 10, 69);
+    doc.text(`Services`, 15, 69);
     doc.text(`Amount`, 165, 69);
     doc.setFontSize(12);
     doc.setFont('courier');
@@ -147,10 +151,10 @@ export class SimpleQuoteComponent implements OnInit {
     doc.line(10, 235, 200, 235) //startx,STARTy,endx,ENDy
     doc.line(10, 244, 200, 244) //startx,STARTy,endx,ENDy
     doc.line(10, 245, 200, 245) //startx,STARTy,endx,ENDy
-    doc.text(`TOTAL $ ${this.customers[x].cost}`, 165, 228);
-    doc.text(`Rate  $ ${this.customers[x].cost}`, 165, 79);
+    doc.text(`TOTAL $ ${this.customers[x].balance}`, 165, 228);
+    doc.text(`Rate  $ ${this.customers[x].balance}`, 165, 79);
 
-    doc.save(this.customers[x].lName + "-QT-" + `${invoice.slice(0,7)}` + '.pdf');
+    doc.save(this.customers[x].lName.slice(0,4) + `-${this.newQuoteOrInvoice.slice(0,1)}-` + `${invoice.slice(0,9)}` + '.pdf');
   }
 
 }
