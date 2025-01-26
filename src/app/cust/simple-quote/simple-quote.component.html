@@ -132,7 +132,10 @@
      </div>
      <div class="col-md-2">
        <button class="btn btn-primary" (click)="addCustomer()">ADD</button>
-       </div>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary" (click)="newQuoteID()">Generate ID</button>
+    </div>
    </div>
  </div>
 
@@ -146,7 +149,7 @@
           
                
                  
-           <td>{{newQuoteId}}</td>  
+           <td>{{customer.quoteId}}</td>  
             <td>{{customer.fName}}</td> 
             <td>{{customer.lName}} </td>
             <td>{{customer.company}}</td>  

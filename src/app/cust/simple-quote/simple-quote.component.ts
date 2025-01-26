@@ -57,6 +57,10 @@ export class SimpleQuoteComponent implements OnInit {
     
   }
 
+  newQuoteID() {
+    this.newQuoteId = Math.floor(Date.now() / 1000).toString().slice(2,9);
+  }
+
   addCustomer() {
     if(this.newfName.trim().length && this.newlName){
       let newCustomer: Customer = {
