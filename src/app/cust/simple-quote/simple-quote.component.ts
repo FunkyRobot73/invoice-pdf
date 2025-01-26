@@ -4,7 +4,7 @@ import { jsPDF } from 'jspdf' ;
 import { DataService } from '../../data.service';
 import { Customer } from '../../models/customer';
 import { FormsModule } from '@angular/forms';
-import { NgFor } from '@angular/common';
+import { DatePipe, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-simple-quote',
@@ -25,7 +25,7 @@ export class SimpleQuoteComponent implements OnInit {
   newlName : string = "Funky Robot";
   newCompany: string = "";
   newEvent: string = "";
-  newDate: string = "";
+  newDate: string = "10/16/2025";
   newEmail : any ="carlos@funkyrobot.ca";
   newPhone: string = "416-832-3546";
   newVenueName: string = "690 Francis Rd.";
@@ -45,12 +45,12 @@ export class SimpleQuoteComponent implements OnInit {
   newNote: string = "Photo Booth needs Table near Power Outlet"
   newQuoteOrInvoice: string = "Quote";
   newCost: string = "";
-  newQuoteId: string = "";
+  newQuoteId: string = Math.floor(Date.now() / 1000).toString().slice(2,9);
   newPaymentType: string = "Cash";
 
   dataService = inject(DataService)
   title = 'simple-invoice';
-  dateEvent  = "date";
+  // todayDate  = Date.now();
   logo = "images/funky.webp"
   
   ngOnInit(): void {
@@ -106,7 +106,17 @@ export class SimpleQuoteComponent implements OnInit {
 
   generatePDF2(buttonElement: any, x:number) {
     const doc = new jsPDF();
-    let fileName2 = buttonElement.textContent;
+    
+    const todayDate = new Date();
+    const yyyy = todayDate.getFullYear();
+    let mm = todayDate.getMonth() + 1; // Months start at 0!
+    let dd = todayDate.getDate();
+    
+    if (dd < 10) dd = 10 + dd;
+    if (mm < 10) mm = 10 + mm;
+    
+    const formattedToday = mm + '/' + dd + '/' + yyyy;
+
     doc.setFont('courier');
     doc.setFontSize(12);
     doc.addImage(this.logo, "WEBP", 10, 10, 25, 25);
@@ -116,10 +126,10 @@ export class SimpleQuoteComponent implements OnInit {
     doc.setFontSize(24);
     doc.text(`${this.customers[x].quoteOrInvoice}`, 150, 18);
     doc.setFontSize(12);
-    let todayDate = Math.floor(Date.now() / 1000);
-    let invoice = todayDate.toString();
-    doc.text(`# ${this.newQuoteOrInvoice.slice(0,1)}-${invoice}`, 150, 30);
-    doc.text(`Date: ${Date().toString}`,150, 36);
+    let todayDateSeconds = Math.floor(Date.now() / 1000);
+    let todayDateString = todayDateSeconds.toString();
+    doc.text(`# ${this.newQuoteOrInvoice.slice(0,1)}-${this.customers[x].quoteId}`, 150, 30);
+    doc.text(`Date: ${formattedToday}`,150, 36);
     doc.text(`Event: ${this.customers[x].dateEvent}`,150, 42);
 
 
@@ -143,7 +153,7 @@ export class SimpleQuoteComponent implements OnInit {
     doc.text(`${this.customers[x].details04}`, 10, 119);
     doc.line(10, 72, 200, 72) //startx,STARTy,endx,ENDy
     doc.line(10, 73, 200, 73) //startx,STARTy,endx,ENDy
-    doc.text(`NOTES: ${this.customers[x].note}`, 20, 240);
+    doc.text(`NOTE(S): ${this.customers[x].note}`, 20, 240);
 
     doc.line(160, 76, 160, 232) //startx,STARTy,endx,ENDy VERTICAL LINE
 
@@ -154,7 +164,7 @@ export class SimpleQuoteComponent implements OnInit {
     doc.text(`TOTAL $ ${this.customers[x].balance}`, 165, 228);
     doc.text(`Rate  $ ${this.customers[x].balance}`, 165, 79);
 
-    doc.save(this.customers[x].lName.slice(0,4) + `-${this.newQuoteOrInvoice.slice(0,1)}-` + `${invoice.slice(0,9)}` + '.pdf');
+    doc.save(this.customers[x].lName.slice(0,4) + `-${this.newQuoteOrInvoice.slice(0,1)}-` + `${this.customers[x].quoteId}` + '.pdf');
   }
 
 }

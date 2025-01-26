@@ -13,15 +13,15 @@
 
      <div class="col-md-2">
         <label>Name</label>
-       <input class="form-control" [(ngModel)]="newfName" placeholder="First Name" type="text">
+       <input class="form-control" [(ngModel)]="newfName" type="text">
      </div>
      <div class="col-md-2">
         <label>Company Name</label>
-       <input class="form-control" [(ngModel)]="newlName" placeholder="Last Name">
+       <input class="form-control" [(ngModel)]="newlName" type="text">
      </div>
      <div class="col-md-2">
         <label>Date</label>
-       <input class="form-control" [(ngModel)]="newDate" type="text" placeholder="Appointment Date">
+       <input class="form-control" [(ngModel)]="newDate" type="text">
      </div>
      <div class="col-md-2">
         <label>Email</label>
@@ -146,7 +146,7 @@
           
                
                  
-           <td>{{customer.quoteId}}</td>  
+           <td>{{newQuoteId}}</td>  
             <td>{{customer.fName}}</td> 
             <td>{{customer.lName}} </td>
             <td>{{customer.company}}</td>  
@@ -154,6 +154,7 @@
             <td>{{customer.dateEvent}}</td> 
             <td>{{customer.phone}}</td> 
             <td>{{customer.venueAddress}}</td>
+            <td>{{customer.balance}}</td>
             <td>{{customer.balance}}</td>
            <button class="btn btn-danger" (click)="deleteCustomer(i)">DELETE</button>
            <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button>
