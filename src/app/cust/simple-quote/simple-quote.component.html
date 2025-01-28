@@ -32,8 +32,8 @@
        <input class="form-control" [(ngModel)]="newPhone" placeholder="(416) 832-3546">
      </div>
      <div class="col-md-2">
-        <label>Venue Address</label>
-       <input class="form-control" [(ngModel)]="newVenueAddress" placeholder="800 Elms St.">
+        <label>Venue Name</label>
+       <input class="form-control" [(ngModel)]="newVenueName" placeholder="800 Elms St.">
      </div>
      <div class="col-md-2">
         <label>City & Province</label>
@@ -54,11 +54,9 @@
               
      <div class="col-md-12"><label>Package:</label>
       <select class="form-control" [(ngModel)]="newService">
-        <option>3-Hour Photo Booth (Gold Package)</option>
-        <option>4-Hour Photo Booth (Gold Package)</option>
-        <option>5-Hour Photo Booth (Gold Package)</option>
-        <option>DJ Party (5 Hrs) Standard Lights & Wireless Mic.</option>
-        <option>DJ Wedding (8 Hrs) Standard Lights & Wireless Mic.</option>
+        <option>Photo Booth</option>
+        <option>DJ Party</option>
+        <option>DJ Wedding</option>
         <option>DJ & Photo Booth Combo.</option>
         <option>DJ & Photo Booth Combo (Outdoor).</option>
         <option>DJ & Photo Booth Combo (Outdoor with Kids).</option>
@@ -140,7 +138,7 @@
  </div>
 
  
- <div class="container card mt-2">
+ <!-- <div class="container card mt-2">
    <table class="mt-2 mb-2">
      <ul class="list-group mt-3">
        <tr>
@@ -166,7 +164,60 @@
        </tr>
    </ul>
    </table>
- </div>
+ </div> -->
+
+<!-- TABLE  to Show several Customers-->
+     
+<div class="container card mt-2">
+  <table class="table mt-2 mb-z table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Quote ID:</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Company</th>
+        <th scope="col">Email</th>
+        <!-- <th scope="col">Set</th> -->
+       
+        <th scope="col">Event Date</th>
+        <th scope="col">Venue</th>
+        <th scope="col">Service</th>
+        <th scope="col">Quote?</th>
+        <th scope="col">Balance</th>
+        <th scope="col">PDF</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+
+      <tbody>
+      
+        <tr class=" align-items-center" *ngFor="let cust of customers; index as i">
+          <!-- <ul class="list-group mt-3"> -->
+        <!-- <li class="list-group-item d-flex justify-content-between align-items-center" > -->
+           <!-- <td>{{customer.fName}}</td>  -->
+            
+           <th scope="row">{{cust.quoteId}}</th>
+           <td>{{cust.fName}}</td>
+           <td>{{cust.lName}}</td>
+           <td>{{cust.email}}</td>
+           <!-- <td>{{cust.pbSet}}</td> -->
+           
+           <td>{{cust.dateEvent}}</td>
+           <td>{{cust.venueName}}</td>
+           <td>{{cust.service}}</td>
+           <td>{{cust.quoteOrInvoice}}</td>
+           <td>{{cust.balance}}</td>
+           <td><button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button></td>
+          <td><button class="btn btn-danger" (click)="deleteCustomer(i)">DELETE</button></td>
+          <!-- <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button> -->
+        <!-- </li> -->
+      <!-- </ul> -->
+    </tr>
+    
+  </tbody>
+  </table>
+</div>
+
+
 </div>
 
 

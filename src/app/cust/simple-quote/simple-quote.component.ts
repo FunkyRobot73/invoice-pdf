@@ -28,11 +28,11 @@ export class SimpleQuoteComponent implements OnInit {
   newDate: string = "10/16/2025";
   newEmail : any ="carlos@funkyrobot.ca";
   newPhone: string = "416-832-3546";
-  newVenueName: string = "690 Francis Rd.";
+  newVenueName: string = "Cheers Bar & Grill";
   newVenueAddress: string = "690 Francis Rd.";
   newVenueCity: string = "Burlington";
-  newIndoor: string = "3-Hour Photo Booth (Gold Package)";
-  newService: string = "3-Hour Photo Booth (Gold Package)";
+  newIndoor: string = "Indoor";
+  newService: string = "DJ Party";
   newTimeStart: string = "";
   newTimeEnd: string = "";
   newStatus: string = "";
@@ -116,8 +116,8 @@ export class SimpleQuoteComponent implements OnInit {
     let mm = todayDate.getMonth() + 1; // Months start at 0!
     let dd = todayDate.getDate();
     
-    if (dd < 10) dd = 10 + dd;
-    if (mm < 10) mm = 10 + mm;
+    // if (dd < 10) dd = 10 + dd;   
+    // if (mm < 10) mm = 10 + mm;
     
     const formattedToday = mm + '/' + dd + '/' + yyyy;
 
@@ -134,7 +134,7 @@ export class SimpleQuoteComponent implements OnInit {
     let todayDateString = todayDateSeconds.toString();
     doc.text(`# ${this.newQuoteOrInvoice.slice(0,1)}-${this.customers[x].quoteId}`, 150, 30);
     doc.text(`Date: ${formattedToday}`,150, 36);
-    doc.text(`Event: ${this.customers[x].dateEvent}`,150, 42);
+    doc.text(`Event: ${this.customers[x].dateEvent}`,20, 228);
 
 
     doc.text(`${this.customers[x].fName}`, 15, 40);
