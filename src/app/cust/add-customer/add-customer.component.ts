@@ -5,6 +5,7 @@ import { DataService } from '../../data.service';
 import { Customer } from '../../models/customer';
 import { FormsModule } from '@angular/forms';
 import { NgFor, CommonModule } from '@angular/common';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -34,23 +35,23 @@ export class AddCustomerComponent {
   newService: string = "DJ Service";
   newTimeStart: string = "Noon";
   newTimeEnd: string = "Midnight";
-  newDetails01: string = "poop";
-  newDetails02: string = "poop";
-  newDetails03: string = "poop";
-  newDetails04: string = "poop";
+  newDetails01: string = "Wedding Package (Cocktails, Dinner & Dancing)";
+  newDetails02: string = "High Quality Sound System with Wireless Mic.";
+  newDetails03: string = "Sound activated LED & Intelligent Lighting";
+  newDetails04: string = "Approx. 100 Guests...  Custom Playlist available";
   newNote: string = "Let me know if you have any questions or comments"
   newQuoteOrInvoice: string = "Quote";
   newStatus: string = "Quote Pending";
   newBalance: number = 0;
-  newPayment: string = "0";
-  newCost: string = "777";
-  newQuoteId: string = "QT-001122";
+  newPayment: number = 0;
+  newCost: number = 1000;
+  newQuoteId: string = Math.floor(Date.now() / 1000).toString().slice(2,9);
   newPaymentType: string = "Cash"
 
   // newCost: number = 750;
   // newQuoteId: number = Date.now();
 
-  //  Date.now()
+  
 
   customerService = inject(AddCustService)
   dataService = inject(DataService)
@@ -74,7 +75,9 @@ export class AddCustomerComponent {
 
   }
 
-  
+  newQuoteID() {
+    this.newQuoteId = Math.floor(Date.now() / 1000).toString().slice(2,9);
+  }
 
   addCustomer() {
     this.customerService.createCustomer({
@@ -131,18 +134,27 @@ export class AddCustomerComponent {
     doc.setFont('courier');
     doc.setFontSize(12);
     doc.addImage(this.logo, "WEBP", 10, 10, 25, 25);
-    doc.text(`${this.dataService.funkyData.funkyName}`, 40, 18);
-    doc.text(`${this.dataService.funkyData.funkyEmail}`, 40, 26);
+    doc.text(`${this.dataService.funkyData.funkyName}`, 40, 16);
+    doc.text(`${this.dataService.funkyData.funkyEmail}`, 40, 22);
+    doc.text(`${this.dataService.funkyData.funkyNumber}`, 40, 28);
     doc.setFontSize(24);
-    doc.text(`${this.customers[x].quoteOrInvoice}`, 150, 18);
+    doc.text(`${this.customers[x].quoteOrInvoice}`, 155, 18);
     doc.setFontSize(12);
     let invoice = this.customers[x].quoteId; // .toString()
-    doc.text(`# ${invoice}`, 150, 30); // 
-    doc.text(`${this.customers[x].dateEvent}`,150, 36);
-    doc.text(`${this.customers[x].fName}`, 10, 40);
-    doc.text(`${this.customers[x].lName}`, 10, 46);
-    doc.text(`${this.customers[x].venueName}`, 10, 52);
-    doc.text(`${this.customers[x].venueAddress}`, 10, 58);
+    doc.text(`# ${this.customers[x].quoteId}`, 165, 26); //
+    doc.text(`${this.customers[x].fName} ${this.customers[x].lName}`, 15, 42);
+    doc.text(`${this.customers[x].company}`, 15, 47);
+    doc.text(`${this.customers[x].email}`, 15, 52);
+    doc.text(`${this.customers[x].phone}`, 15, 57);
+    
+    
+    doc.text(`Event Details: ${this.customers[x].dateEvent} @ ${this.customers[x].timeStart}`,15,170);
+    doc.line(15, 171, 102, 171) //startx,STARTy,endx,ENDy 
+    doc.text(`${this.customers[x].venueName}`, 20,180);
+    doc.text(`${this.customers[x].venueAddress}`, 20,186);
+   
+    
+    
     doc.line(10, 62, 200, 62) //startx,STARTy,endx,ENDy
     doc.line(10, 63, 200, 63) //startx,STARTy,endx,ENDy
     doc.setFontSize(10);
@@ -150,7 +162,7 @@ export class AddCustomerComponent {
     
     doc.text(`Services`, 10, 69);
     doc.text(`Amount`, 165, 69);
-    doc.setFontSize(12);
+    doc.setFontSize(10);
     doc.setFont('courier');
     doc.text(`${this.customers[x].service}`, 10, 79);
     doc.text(`${this.customers[x].details01}`, 10, 89);
@@ -167,8 +179,15 @@ export class AddCustomerComponent {
     doc.line(10, 235, 200, 235) //startx,STARTy,endx,ENDy
     doc.line(10, 244, 200, 244) //startx,STARTy,endx,ENDy
     doc.line(10, 245, 200, 245) //startx,STARTy,endx,ENDy
-    doc.text(`TOTAL $ ${this.customers[x].cost}`, 165, 228);
-    doc.text(`Rate  $ ${this.customers[x].cost}`, 165, 79);
+    doc.text(`Rate`, 145, 79);
+    doc.text(`$ ${this.customers[x].cost}`, 165, 79);
+    doc.text(`Subtotal`, 141, 208);
+    doc.text(`$ ${this.customers[x].cost}`, 165, 208);
+    doc.text(`PAYMENT`, 142, 218);
+    doc.text(`$ ${this.customers[x].payment}`, 165, 218);
+    doc.text(`TOTAL`, 145, 228);
+    doc.text(`$ ${this.customers[x].balance}`, 165, 228);
+
 
     doc.save(this.customers[x].lName + "-QT-" + `${invoice}` + '.pdf');
   }

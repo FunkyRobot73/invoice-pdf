@@ -115,7 +115,7 @@
        <input class="form-control" [(ngModel)]="newNote" placeholder="Just a Note...">
      </div>
 
-     <div class="col-md-3"><label>Quote or Invoice:</label>
+     <div class="col-md-6"><label>Quote or Invoice:</label>
         <select class="form-control" [(ngModel)]="newQuoteOrInvoice">
           <option>Quote</option>
           <option>Invoice</option>
@@ -123,7 +123,7 @@
           
           </select>
       </div>
-      <div class="col-md-3"><label>Status:</label>
+      <div class="col-md-6"><label>Status:</label>
         <select class="form-control" [(ngModel)]="newStatus">
           <option>Quote Pending</option>
           <option>Booked</option>
@@ -134,13 +134,18 @@
       </div>
 
       <div class="col-md-3">
-        <label>Balance:</label>
-           <input class="form-control" [(ngModel)]="newBalance">
+        <label>Cost:</label>
+           <input class="form-control" [(ngModel)]="newCost">
       </div>
       
       <div class="col-md-3">
         <label>Payment:</label>
            <input class="form-control" [(ngModel)]="newPayment">
+      </div>
+
+      <div class="col-md-3">
+        <label>Balance:</label>
+           <input class="form-control" [(ngModel)]="newBalance">
       </div>
       
 
@@ -154,9 +159,13 @@
       </div>
 
 
-     <div class="col-md-2">
+     <div class="col-md-2 mt-2">
        <button class="btn btn-primary" (click)="addCustomer()">ADD</button>
        </div>
+       <div class="col-md-2 mt-2">
+        <button class="btn btn-primary" (click)="newQuoteID()">Generate ID {{this.newQuoteId}}</button>
+      </div>
+      <div></div>
        
    </div>
  </div>
@@ -180,6 +189,7 @@
         <th scope="col">Venue</th>
         <th scope="col">Service</th>
         <th scope="col">Quote?</th>
+        <th scope="col">Cost</th>
         <th scope="col">Balance</th>
         <th scope="col">PDF</th>
         <th scope="col">Delete</th>
@@ -203,6 +213,7 @@
            <td>{{cust.venueName}}</td>
            <td>{{cust.service}}</td>
            <td>{{cust.quoteOrInvoice}}</td>
+           <td>{{cust.cost}}</td>
            <td>{{cust.balance}}</td>
            <td><button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button></td>
           <td><button class="btn btn-danger" (click)="deleteCustomer(i)">DELETE</button></td>

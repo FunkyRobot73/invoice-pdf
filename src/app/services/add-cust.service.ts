@@ -21,16 +21,16 @@ const httpOptions = {
     "newTimeStart": "",
     "newTimeEnd": "",
     "newStatus": "",
-    "newPayment": "",
-    "newBalance": 750,
+    "newPayment": 200,
+    "newBalance": 995,
     "newDetails01": "",
     "newDetails02": "",
     "newDetails03": "",
     "newDetails04": "",
     "newNote": "Let me know if you have any questions or comments",
     "newQuoteOrInvoice": "Invoice",
-    "newCost": "777",
-    "newQuoteId": "quoteridd",
+    "newCost": 995,
+    "newQuoteId": "",
 
   })
 }

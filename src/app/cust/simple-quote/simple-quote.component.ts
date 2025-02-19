@@ -36,7 +36,7 @@ export class SimpleQuoteComponent implements OnInit {
   newTimeStart: string = "";
   newTimeEnd: string = "";
   newStatus: string = "";
-  newPayment: string = "";
+  newPayment: number = 200;
   newBalance: number = 995;
   newDetails01: string = "Photo Booth or DJ for Wedding (8-11pm)";
   newDetails02: string = "- High Quality Sound System";
@@ -44,7 +44,7 @@ export class SimpleQuoteComponent implements OnInit {
   newDetails04: string = "- Customized play-list to suite your requirements";
   newNote: string = "Photo Booth needs Table near Power Outlet"
   newQuoteOrInvoice: string = "Quote";
-  newCost: string = "";
+  newCost: number = 995;
   newQuoteId: string = Math.floor(Date.now() / 1000).toString().slice(2,9);
   newPaymentType: string = "Cash";
 

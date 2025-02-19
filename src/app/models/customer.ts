@@ -16,7 +16,7 @@ export interface Customer {
         timeStart: string,
         timeEnd: string,
         status: string,
-        payment: string,
+        payment: number,
         balance: number,
         details01: string,
         details02: string,
@@ -24,7 +24,7 @@ export interface Customer {
         details04: string,
         note: string,
         quoteOrInvoice: string,
-        cost: string,
+        cost: number,
         quoteId: string,
         paymentType: string
 
