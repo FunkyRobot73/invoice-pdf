@@ -185,7 +185,7 @@ export class AddCustomerComponent {
     doc.text(`$ ${this.customers[x].cost}`, 165, 208);
     doc.text(`PAYMENT`, 142, 218);
     doc.text(`$ ${this.customers[x].payment}`, 165, 218);
-    doc.text(`TOTAL`, 145, 228);
+    doc.text(`Balance`, 142, 228);
     doc.text(`$ ${this.customers[x].balance}`, 165, 228);
 
 
