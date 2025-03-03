@@ -3,15 +3,8 @@ import { Photobooth } from '../../models/photobooth';
 import { CurrencyPipe, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AddPhotoBoothQuoteService } from '../../services/add-photo-booth-quote.service';
+import { Props } from '../../models/props';
 
-interface Props{
-  idProp: number;
-  nameProp: string;
-  descProp: string;
-  pricePropAll: number;
-  pricePropHour: number;
-  imageProp: string;
-}
 
 
 @Component({
