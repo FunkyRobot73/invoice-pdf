@@ -5,12 +5,13 @@ import { CformComponent } from './cform/cform/cform.component';
 import { AddCustomerComponent } from './cust/add-customer/add-customer.component';
 import { SimpleQuoteComponent } from './cust/simple-quote/simple-quote.component';
 import { PbQuoteComponent } from './cust/pb-quote/pb-quote.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 export const routes: Routes = [
 
-    // { path: '', redirectTo: '/home', pathMatch: 'full'},
-    // { path: 'home', component: AppComponent },
+    { path: '', redirectTo: '/home', pathMatch: 'full'},
+    { path: 'home', component: HomeComponent },
     { path: 'quote', component: SimpleQuoteComponent },
     { path: 'pb', component: PbQuoteComponent },
     { path: 'addcustomer', component: AddCustomerComponent },

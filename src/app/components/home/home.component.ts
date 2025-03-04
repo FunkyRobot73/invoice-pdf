@@ -1,16 +1,14 @@
-import { Component } from '@angular/core';
-import { HomeComponent } from '../../components/home/home.component';
+import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarService } from '../../services/navbar.service';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'app-home',
   imports: [CommonModule],
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css'
 })
-export class NavbarComponent {
-
+export class HomeComponent {
   links = [
     { name: 'Home', url: '/' },
     { name: 'Simple Quote', url: '/quote' },
@@ -18,5 +16,4 @@ export class NavbarComponent {
     { name: 'Photo Booth', url: '/pb' },
     { name: 'Disc Jockey', url: '/dj' }
   ];
-  
 }
