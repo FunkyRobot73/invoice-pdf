@@ -4,6 +4,7 @@ import { CurrencyPipe, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AddPhotoBoothQuoteService } from '../../services/add-photo-booth-quote.service';
 import { Props } from '../../models/props';
+import { AppComponent } from '../../app.component';
 
 
 
@@ -15,10 +16,12 @@ import { Props } from '../../models/props';
 })
 export class PbQuoteComponent implements OnInit{
 
-  
+  logo = "images/funky-l.png";
+  mainLogo = inject(AppComponent).mainLogo
   costPerHour = 150;
   photoboothService = inject(AddPhotoBoothQuoteService)
   props:Props[] = [];
+  leftPhoto = "prop.jpg"
 
   constructor() {
 
