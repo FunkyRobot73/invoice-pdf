@@ -182,7 +182,7 @@
         <!-- <button class="btn btn-primary m-2" (click)="updateQuote()">Update Quote</button> -->
         <h4>Total Hours: {{newPBHour}}</h4>
         <h4>Total Upgrade Costs: {{upgradeCosts}}</h4>
-        <!-- <h4>Absolute Cost: {{costPerHour * newPBHour + totalCost}}</h4> -->
+       <h4>Cost of Props: {{newPBProp}}</h4>
         <h4></h4>
         <h4>Total Cost: {{(costPerHour * newPBHour + upgradeCosts) | currency}}</h4>
         <p>(Cost Per Hour: {{ ((costPerHour * newPBHour + upgradeCosts) / newPBHour | currency)}})</p>
@@ -200,13 +200,13 @@
 
         <dl>
           <dt>{{newPBHour}} Hour Photo Booth with {{newPBPrint}}</dt>
-          <dd> - {{newPBProp}} Props ({{propCost | currency}})</dd>
-          <dd> - {{newPBBackdrop}} Backdrop ({{backdropCost | currency}})</dd>
+          <dd><span class="h6 ms-2">PROPS:</span>  {{newPBProp}} Props ({{propCost | currency}})</dd>
+          <dd><span class="h6 ms-2">PROPS:</span> {{newPBBackdrop}} Backdrop ({{backdropCost | currency}})</dd>
           <!-- <dd> - {{newPBPrint}}</dd> -->
-          <dd> - {{newPBLayout}} with ({{layoutCost | currency}}) </dd>
-          <dd> - {{newPBPrint}} ({{printCost | currency}}) </dd>
-          <dd> - USB Stick? {{newPBUSB}} ({{usbCost | currency}}) </dd>
-          <dd> - {{newPBHost}} (Always Free) </dd>
+          <dd><span class="h6 ms-2">PROPS:</span>  {{newPBLayout}} with ({{layoutCost | currency}}) </dd>
+          <dd><span class="h6 ms-2">PROPS:</span> {{newPBPrint}} ({{printCost | currency}}) </dd>
+          <dd><span class="h6 ms-2">PROPS:</span> USB Stick? {{newPBUSB}} ({{usbCost | currency}}) </dd>
+          <dd><span class="h6 ms-2">Hosting:</span> -> {{newPBHost}} (Always Free) </dd>
           <dd></dd>
         </dl>
       </div>
