@@ -1,7 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { catchError, throwError } from 'rxjs';
-
 const httpOptions = {
   headers: new HttpHeaders({
 
@@ -13,15 +12,15 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class AddPhotoBoothQuoteService {
+export class PropsService {
 
   constructor() { }
 
-  private apiUrl01 = "https://back.funkyrobot.ca/photobooth";
+  private apiUrl01 = "https://back.funkyrobot.ca/props";
   http = inject(HttpClient);
   
 
-  getPhotobooth() {
+  getProp() {
       return this.http.get<any>(this.apiUrl01).pipe(catchError(this.handleError));
     }
 
@@ -29,5 +28,4 @@ export class AddPhotoBoothQuoteService {
     console.log(error);
     return throwError(()=> new Error(`Something went poop!`));
   }
-
 }

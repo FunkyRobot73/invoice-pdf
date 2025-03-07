@@ -85,9 +85,9 @@
         </select>
       </div>
       <div class="col-md-2"><label>Green Screen?</label>
-        <select class="form-control" [(ngModel)]="newPBGreen">
-          <option>No</option>
-          <option>Yes</option>
+        <select class="form-control" [(ngModel)]="newPBIndoor">
+          <option>Indoor</option>
+          <option>Outdoor</option>
         </select>
       </div>
       <div class="col-md-2"><label>Color or B/W Print?</label>
@@ -96,6 +96,11 @@
           <option>Black & White</option>
         </select>
       </div>
+
+      <div class="col-md-2"><label>Cost:</label>
+        <input class="form-control" [(ngModel)]="costPB" type="number" value="5">
+      </div>
+
       <div class="col-md-2 mt-2">
         <button class="btn btn-primary" (click)="addQuote()">ADD</button>
       </div>
@@ -103,25 +108,7 @@
     </div>
   </div>
 
-  <!-- Picture DIV -->
-
-  <div class="container card p-3 mt-3 col-md-12">
-
-    <div class="row">
-      <div class="col-md-4" *ngFor="let prop of props">
-        <img width="50%" class="logo-head" [src]="'https://back.funkyrobot.ca/public/' + prop.imageProp">
-      </div>
-
-      <div class="col-md-4">
-        
-      </div>
-
-      <div class="col-md-4"></div>
-    </div>
-
-  </div>
-
-  <!-- END Picture DIV -->
+  
 
   <!-- TABLE -->
 
@@ -138,9 +125,9 @@
           <th scope="col">USB</th>
           <th scope="col">Host</th>
           <th scope="col">Instant</th>
-          <th scope="col">G-Book</th>
-          <th scope="col">Green</th>
+          <th scope="col">Guest Book</th>
           <th scope="col">Color</th>
+          <th scope="col">IndoorOutdoor</th>
           <th scope="col">Delete</th>
         </tr>
       </thead>
@@ -152,18 +139,18 @@
           <!-- <li class="list-group-item d-flex justify-content-between align-items-center" > -->
           <!-- <td>{{customer.fName}}</td>  -->
 
-          <th scope="row">{{quote.pbHour}}</th>
-          <td>{{quote.pbProp}}</td>
-          <td>{{quote.pbBackdrop}}</td>
-          <td>{{quote.pbPrint}}</td>
+          <th scope="row">{{quote.hoursPB}}</th>
+          <td>{{quote.propsPB}}</td>
+          <td>{{quote.backdropPB}}</td>
+          <td>{{quote.printsPB}}</td>
           <!-- <td>{{quote.pbSet}}</td> -->
-          <td>{{quote.pbLayout}}</td>
-          <td>{{quote.pbUSB}}</td>
-          <td>{{quote.pbHost}}</td>
-          <td>{{quote.pbEmail}}</td>
-          <td>{{quote.pbBook}}</td>
-          <td>{{quote.pbGreen}}</td>
-          <td>{{quote.pbColor}}</td>
+          <td>{{quote.layoutPB}}</td>
+          <td>{{quote.usbPB}}</td>
+          <td>{{quote.hostingPB}}</td>
+          <td>{{quote.instantDigitalPB}}</td>
+          <td>{{quote.guestBookPB}}</td>
+          <td>{{quote.colorPB}}</td>
+          <td>{{quote.indoorPB}}</td>
           <td><button class="btn btn-danger" (click)="deleteQuote(i)">DELETE</button></td>
           <!-- <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button> -->
           <!-- </li> -->

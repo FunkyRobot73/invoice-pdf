@@ -3,6 +3,7 @@ import { Photobooth } from '../../models/photobooth';
 import { CurrencyPipe, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AddPhotoBoothQuoteService } from '../../services/add-photo-booth-quote.service';
+import { PropsService } from '../../services/props.service';
 import { Props } from '../../models/props';
 import { AppComponent } from '../../app.component';
 
@@ -19,13 +20,13 @@ export class PbQuoteComponent implements OnInit{
   logo = "images/funky-l.png";
   mainLogo = inject(AppComponent).mainLogo
   costPerHour = 150;
-  photoboothService = inject(AddPhotoBoothQuoteService)
+  propsService = inject(PropsService)
   props:Props[] = [];
   leftPhoto = "prop.jpg"
 
   constructor() {
 
-    this.photoboothService.getProp().subscribe({
+    this.propsService.getProp().subscribe({
       next: (data) => {
         this.props = data;
       },
@@ -57,6 +58,7 @@ export class PbQuoteComponent implements OnInit{
   newPBBook: string ="No";
   newPBGreen: string ="No";
   newPBColor: string ="Color";
+  newPBIndoor: string ="Indoor";
   
   absoluteCost = (this.costPerHour * this.newPBHour + this.options);
 
@@ -66,23 +68,23 @@ export class PbQuoteComponent implements OnInit{
   setCost = 0;
   layoutCost = 0;
   usbCost = 0;
+  costPB =500;
   
   
   addQuote() {
     let newquotePB : Photobooth = {
-      // Sample ==> fName: this.newfName,
-      pbHour: this.newPBHour,
-      pbProp: this.newPBProp,
-      pbBackdrop: this.newPBBackdrop,
-      pbPrint: this.newPBPrint,
-      // pbSet: this.newPBSet,
-      pbLayout: this.newPBLayout,
-      pbUSB: this.newPBUSB,
-      pbHost: this.newPBHost,
-      pbEmail: this.newPBEmail,
-      pbBook: this.newPBBook,
-      pbGreen: this.newPBGreen,
-      pbColor: this.newPBColor
+      // idPB: this.newPBHour,
+  hoursPB: this.newPBHour,
+  propsPB: this.newPBProp,
+  backdropPB: this.newPBBackdrop,
+  printsPB: this.newPBPrint,
+  layoutPB: this.newPBLayout,
+  usbPB: this.newPBUSB,
+  hostingPB: this.newPBHost,
+  instantDigitalPB: this.newPBEmail,
+  guestBookPB: this.newPBBook,
+  colorPB: this.newPBColor,
+  indoorPB: this.newPBIndoor,
     }
     // this.customers.push(newCustomer);
     this.quotesPB.push(newquotePB)
