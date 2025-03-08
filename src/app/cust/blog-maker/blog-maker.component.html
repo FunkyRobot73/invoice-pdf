@@ -1,0 +1,79 @@
+<div class="container mt-5">
+    <h2>Create Blog</h2>
+    <form id="blogForm" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="titleBlog" class="form-label">Title</label>
+            <input type="text" class="form-control" id="titleBlog" name="titleBlog" required>
+        </div>
+        <div class="mb-3">
+            <label for="bodyBlog" class="form-label">Body</label>
+            <textarea class="form-control" id="bodyBlog" name="bodyBlog" rows="5" required></textarea>
+            <small id="wordCount" class="form-text text-muted">Word count: 0</small>
+        </div>
+        <div class="mb-3">
+            <label for="imageBlog" class="form-label">Image</label>
+            <input type="file" class="form-control" id="imageBlog" name="imageBlog" accept="image/*" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <h2 class="mt-5">Recent Blogs</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Body</th>
+                <th>Image</th>
+                <th>Updated At</th>
+            </tr>
+        </thead>
+        <tbody id="blogList">
+            <!-- Blog entries will be populated here -->
+        </tbody>
+    </table>
+</div>
+
+<script>
+    document.getElementById('bodyBlog').addEventListener('input', function() {
+        const wordCount = this.value.split(/\s+/).filter(word => word.length > 0).length;
+        document.getElementById('wordCount').innerText = `Word count: ${wordCount}`;
+    });
+
+    document.getElementById('blogForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        fetch('https://back.funkyrobot.ca/addblog', {
+            method: 'POST',
+            body: formData
+        }).then(response => response.json())
+            .then(data => {
+                alert('Blog added successfully!');
+                loadBlogs();
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+    });
+
+    function loadBlogs() {
+        fetch('https://back.funkyrobot.ca/viewblog')
+            .then(response => response.json())
+            .then(data => {
+                const blogList = document.getElementById('blogList');
+                blogList.innerHTML = '';
+                data.slice(0, 10).forEach(blog => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${blog.titleBlog}</td>
+                        <td>${blog.bodyBlog}</td>
+                        <td><img src="${blog.imageBlog}" alt="Blog Image" width="100"></td>
+                        <td>${new Date(blog.updatedAt).toLocaleString()}</td>
+                    `;
+                    blogList.appendChild(row);
+                });
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', loadBlogs);
+</script>
