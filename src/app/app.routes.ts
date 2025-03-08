@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { CformComponent } from './cform/cform/cform.component';
+
 import { AddCustomerComponent } from './cust/add-customer/add-customer.component';
 import { SimpleQuoteComponent } from './cust/simple-quote/simple-quote.component';
 import { PbQuoteComponent } from './cust/pb-quote/pb-quote.component';

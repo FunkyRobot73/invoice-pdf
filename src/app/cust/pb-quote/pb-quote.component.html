@@ -1,112 +1,114 @@
-<div class="container ">
-  <div class="card mt-3 p-3 bg-card">
-    <div class="row">
-      <div class="col bg-card">
-        <h2 class="text-center">Create Photo Booth Quote</h2>
+<form (ngSubmit)="addQuote()">
+  <div class="container ">
+    <div class="card mt-3 p-3 bg-card">
+      <div class="row">
+        <div class="col bg-card">
+          <h2 class="text-center">Create Photo Booth Quote</h2>
+        </div>
       </div>
-    </div>
-    <div class="row mt-3 bg-card">
-      <div class="col-md-2"><label>Hours Needed?</label>
-        <input class="form-control" [(ngModel)]="newPBHour" type="number" value="5">
-      </div>
-
-      <div class="col-md-2"><label>Props?</label>
-        <select class="form-control" [(ngModel)]="newPBProp" name="newPBProp">
-          <option *ngFor="let prop of props">
-            <p>
-              {{prop.nameProp}} ({{prop.pricePropAll | currency : '$' : "symbol" : '1.0-0' }})
-            </p>
-            <img width="50%" class="logo-head" [src]="'https://back.funkyrobot.ca/public/'">
-          </option>
-          
-          
-        </select>
-
-      </div>
-
-      <div class="col-md-2"><label>Backdrop?</label>
-        <select class="form-control" [(ngModel)]="newPBBackdrop">
-          <option>Silver</option>
-          <option>White</option>
-          <option>Gold</option>
-          <!-- <option>Red</option>
-            <option>Custom</option>
-            <option>None (Outdoors)</option> -->
-
-        </select>
-      </div>
-      <div class="col-md-2"><label>Prints or Digital?</label>
-        <select class="form-control" [(ngModel)]="newPBPrint">
-          <option>Digital Only</option>
-          <option>Single Print</option>
-          <option>Double Print</option>
-          <option>Print Per Guest</option>
-        </select>
-      </div>
-      <!-- <div class="col-md-2"><label>Single/Double/PPP ?</label>
-          <select class="form-control" [(ngModel)]="newPBSet" [disabled]="newPBPrint">
-            <option>Single</option>
-            <option>Two Prints</option>
+      <div class="row mt-3 bg-card">
+        <div class="col-md-2"><label>Hours Needed?</label>
+          <input class="form-control" [(ngModel)]="hoursPB" type="number" value="5">
+        </div>
+  
+        <div class="col-md-2"><label>Props?</label>
+          <select class="form-control" [(ngModel)]="propsPB" name="newPBProp">
+            <option *ngFor="let prop of props">
+              <p>
+                {{prop.nameProp}} ({{prop.pricePropAll | currency : '$' : "symbol" : '1.0-0' }})
+              </p>
+              <img width="50%" class="logo-head" [src]="'https://back.funkyrobot.ca/public/'">
+            </option>
+            
+            
+          </select>
+  
+        </div>
+  
+        <div class="col-md-2"><label>Backdrop?</label>
+          <select class="form-control" [(ngModel)]="backdropPB">
+            <option>Silver</option>
+            <option>White</option>
+            <option>Gold</option>
+            <!-- <option>Red</option>
+              <option>Custom</option>
+              <option>None (Outdoors)</option> -->
+  
+          </select>
+        </div>
+        <div class="col-md-2"><label>Prints or Digital?</label>
+          <select class="form-control" [(ngModel)]="printsPB">
+            <option>Digital Only</option>
+            <option>Single Print</option>
+            <option>Double Print</option>
             <option>Print Per Guest</option>
           </select>
-        </div> -->
-      <div class="col-md-2"><label>Layout?</label>
-        <select class="form-control" [(ngModel)]="newPBLayout">
-          <option>Classic Strip</option>
-          <option>Landscape</option>
-          <option>Portrait</option>
-        </select>
+        </div>
+        <!-- <div class="col-md-2"><label>Single/Double/PPP ?</label>
+            <select class="form-control" [(ngModel)]="newPBSet" [disabled]="newPBPrint">
+              <option>Single</option>
+              <option>Two Prints</option>
+              <option>Print Per Guest</option>
+            </select>
+          </div> -->
+        <div class="col-md-2"><label>Layout?</label>
+          <select class="form-control" [(ngModel)]="layoutPB">
+            <option>Classic Strip</option>
+            <option>Landscape</option>
+            <option>Portrait</option>
+          </select>
+        </div>
+        <div class="col-md-2"><label>USB Stick?</label>
+          <select class="form-control" [(ngModel)]="usbPB">
+            <option>No</option>
+            <option>Yes</option>
+  
+          </select>
+        </div>
+        <div class="col-md-2"><label>1-Year Online Hosting</label>
+          <select class="form-control" [(ngModel)]="hostingPB">
+            <option>Included Free</option>
+            <option>No Online</option>
+  
+          </select>
+        </div>
+        <div class="col-md-2"><label>Instant Digital?</label>
+          <select class="form-control" [(ngModel)]="instantDigitalPB">
+            <option>No</option>
+            <option>Instant Email</option>
+            <option>Instant SMS</option>
+          </select>
+        </div>
+        <div class="col-md-2"><label>Guest Book?</label>
+          <select class="form-control" [(ngModel)]="guestBookPB">
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+        </div>
+        <div class="col-md-2"><label>Green Screen?</label>
+          <select class="form-control" [(ngModel)]="indoorPB">
+            <option>Indoor</option>
+            <option>Outdoor</option>
+          </select>
+        </div>
+        <div class="col-md-2"><label>Color or B/W Print?</label>
+          <select class="form-control" [(ngModel)]="colorPB">
+            <option>Color</option>
+            <option>Black & White</option>
+          </select>
+        </div>
+  
+        <div class="col-md-2"><label>Cost:</label>
+          <input class="form-control" [(ngModel)]="costPB" type="number" value="5">
+        </div>
+  
+        <div class="col-md-2 mt-2">
+          <button class="btn btn-primary" (click)="addQuote()">ADD</button>
+        </div>
+  
       </div>
-      <div class="col-md-2"><label>USB Stick?</label>
-        <select class="form-control" [(ngModel)]="newPBUSB">
-          <option>No</option>
-          <option>Yes</option>
-
-        </select>
-      </div>
-      <div class="col-md-2"><label>1-Year Online Hosting</label>
-        <select class="form-control" [(ngModel)]="newPBHost">
-          <option>Included Free</option>
-          <option>No Online</option>
-
-        </select>
-      </div>
-      <div class="col-md-2"><label>Instant Digital?</label>
-        <select class="form-control" [(ngModel)]="newPBEmail">
-          <option>No</option>
-          <option>Instant Email</option>
-          <option>Instant SMS</option>
-        </select>
-      </div>
-      <div class="col-md-2"><label>Guest Book?</label>
-        <select class="form-control" [(ngModel)]="newPBBook">
-          <option>No</option>
-          <option>Yes</option>
-        </select>
-      </div>
-      <div class="col-md-2"><label>Green Screen?</label>
-        <select class="form-control" [(ngModel)]="newPBIndoor">
-          <option>Indoor</option>
-          <option>Outdoor</option>
-        </select>
-      </div>
-      <div class="col-md-2"><label>Color or B/W Print?</label>
-        <select class="form-control" [(ngModel)]="newPBColor">
-          <option>Color</option>
-          <option>Black & White</option>
-        </select>
-      </div>
-
-      <div class="col-md-2"><label>Cost:</label>
-        <input class="form-control" [(ngModel)]="costPB" type="number" value="5">
-      </div>
-
-      <div class="col-md-2 mt-2">
-        <button class="btn btn-primary" (click)="addQuote()">ADD</button>
-      </div>
-
     </div>
-  </div>
+
 
   
 
@@ -143,7 +145,6 @@
           <td>{{quote.propsPB}}</td>
           <td>{{quote.backdropPB}}</td>
           <td>{{quote.printsPB}}</td>
-          <!-- <td>{{quote.pbSet}}</td> -->
           <td>{{quote.layoutPB}}</td>
           <td>{{quote.usbPB}}</td>
           <td>{{quote.hostingPB}}</td>
@@ -167,12 +168,12 @@
       <div class="col-md-4">
         <h2>Photo Booth Quote</h2>
         <!-- <button class="btn btn-primary m-2" (click)="updateQuote()">Update Quote</button> -->
-        <h4>Total Hours: {{newPBHour}}</h4>
+        <h4>Total Hours: {{errorPB}}</h4>
         <h4>Total Upgrade Costs: {{upgradeCosts}}</h4>
-       <h4>Cost of Props: {{newPBProp}}</h4>
+       <h4>Cost of Props: {{errorPB}}</h4>
         <h4></h4>
-        <h4>Total Cost: {{(costPerHour * newPBHour + upgradeCosts) | currency}}</h4>
-        <p>(Cost Per Hour: {{ ((costPerHour * newPBHour + upgradeCosts) / newPBHour | currency)}})</p>
+        <h4>Total Cost: {{(costPerHour * hoursPB + upgradeCosts) | currency}}</h4>
+        <p>(Cost Per Hour: {{ ((costPerHour * hoursPB + upgradeCosts) / hoursPB | currency)}})</p>
         <button class="btn btn-primary m-2" (click)="calculateTotal()">Update Quote</button>
       </div>
 
@@ -186,14 +187,14 @@
       <div class="col-md-4">
 
         <dl>
-          <dt>{{newPBHour}} Hour Photo Booth with {{newPBPrint}}</dt>
-          <dd><span class="h6 ms-2">PROPS:</span>  {{newPBProp}} Props ({{propCost | currency}})</dd>
-          <dd><span class="h6 ms-2">PROPS:</span> {{newPBBackdrop}} Backdrop ({{backdropCost | currency}})</dd>
+          <dt>{{hoursPB}} Hour Photo Booth with {{printCost}}</dt>
+          <dd><span class="h6 ms-2">PROPS:</span>  {{propsPB}} Props ({{propCost | currency}})</dd>
+          <dd><span class="h6 ms-2">PROPS:</span> {{backdropPB}} Backdrop ({{backdropCost | currency}})</dd>
           <!-- <dd> - {{newPBPrint}}</dd> -->
-          <dd><span class="h6 ms-2">PROPS:</span>  {{newPBLayout}} with ({{layoutCost | currency}}) </dd>
-          <dd><span class="h6 ms-2">PROPS:</span> {{newPBPrint}} ({{printCost | currency}}) </dd>
-          <dd><span class="h6 ms-2">PROPS:</span> USB Stick? {{newPBUSB}} ({{usbCost | currency}}) </dd>
-          <dd><span class="h6 ms-2">Hosting:</span> -> {{newPBHost}} (Always Free) </dd>
+          <dd><span class="h6 ms-2">PROPS:</span>  {{layoutPB}} with ({{layoutCost | currency}}) </dd>
+          <dd><span class="h6 ms-2">PROPS:</span> {{printsPB}} ({{printCost | currency}}) </dd>
+          <dd><span class="h6 ms-2">PROPS:</span> USB Stick? {{usbPB}} ({{usbCost | currency}}) </dd>
+          <dd><span class="h6 ms-2">Hosting:</span> -> {{hostingPB}} (Always Free) </dd>
           <dd></dd>
         </dl>
       </div>
@@ -221,19 +222,19 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">{{newPBHour}}</th>
-        <td>{{newPBProp}}</td>
-        <td>{{newPBBackdrop}}</td>
-        <td>{{newPBPrint}}</td>
+        <th scope="row">{{hoursPB}}</th>
+        <td>{{propsPB}}</td>
+        <td>{{backdropPB}}</td>
+        <td>{{printsPB}}</td>
         <!-- <td>{{newPBSet}}</td> -->
-        <td>{{newPBLayout}}</td>
-        <td>{{newPBUSB}}</td>
-        <td>{{newPBHost}}</td>
-        <td>{{newPBEmail}}</td>
-        <td>{{newPBBook}}</td>
-        <td>{{newPBGreen}}</td>
-        <td>{{newPBColor}}</td>
-        <td>{{(costPerHour * newPBHour + upgradeCosts) | currency}}</td>
+        <td>{{layoutPB}}</td>
+        <td>{{usbPB}}</td>
+        <td>{{hostingPB}}</td>
+        <td>{{instantDigitalPB}}</td>
+        <td>{{guestBookPB}}</td>
+        <td>{{errorPB}}</td>
+        <td>{{colorPB}}</td>
+        <td>{{(costPerHour * hoursPB + upgradeCosts) | currency}}</td>
       </tr>
 
 

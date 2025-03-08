@@ -11,6 +11,7 @@ export interface Photobooth {
     instantDigitalPB: string,
     guestBookPB: string,
     colorPB: string,
-    indoorPB: string
+    indoorPB: string,
+    costPB: number
 
 }
