@@ -61,7 +61,7 @@ export class PbQuoteComponent implements OnInit{
   
   
 
-  imageFile:  File | null = null;
+  imageFile:  string = "";
   imageName: string ="";  
   
   
@@ -79,23 +79,33 @@ export class PbQuoteComponent implements OnInit{
   createPBQuote = inject(CreatePhotoBoothPackageService)
   
   addQuote() {
-    let newquotePB : Photobooth = {
+    this.createPBQuote.createPhotoBooth(
      
-      hoursPB: this.hoursPB,
-      propsPB: this.propsPB,
-      backdropPB: this.backdropPB,
-      printsPB: this.printsPB,
-      layoutPB: this.layoutPB,
-      usbPB: this.usbPB,
-      hostingPB: this.hostingPB,
-      instantDigitalPB: this.instantDigitalPB,
-      guestBookPB: this.guestBookPB,
-      colorPB: this.colorPB,
-      indoorPB: this.indoorPB,
-      costPB: this.costPB
+      this.hoursPB,
+      this.propsPB,
+      this.backdropPB,
+      this.printsPB,
+      this.layoutPB,
+      this.usbPB,
+      this.hostingPB,
+      this.instantDigitalPB,
+      this.guestBookPB,
+      this.colorPB,
+      this.indoorPB,
+      this.costPB
+      // this.imageFile,
+      // this.imageName
+    ).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+      }
     }
+    );
     // this.customers.push(newCustomer);
-    this.quotesPB.push(newquotePB)
+    
   }
 
   // addPBPackage() {

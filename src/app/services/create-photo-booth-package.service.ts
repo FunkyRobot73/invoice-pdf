@@ -16,7 +16,7 @@ const httpOptions = {
     "guestBookPB" : "",
     "colorPB" : "",
     "indoorPB" : "",
-    "cost" : "",
+    "costPB" : "",
   })
 }
 
@@ -24,7 +24,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class CreatePhotoBoothPackageService {
-  private apiUrl02 = "https://back.swap2go.ca/addphotobooth";
+  private apiUrl02 = "https://back.funkyrobot.ca/addphotobooth";
 
   constructor(private http: HttpClient) { }
 
@@ -34,8 +34,8 @@ export class CreatePhotoBoothPackageService {
 
   createPhotoBooth(
 
-    idPB: string,
-    hoursPB: string,
+    // idPB: string,
+    hoursPB: number,
     propsPB: string,
     backdropPB: string,
     printsPB: string,
@@ -46,16 +46,16 @@ export class CreatePhotoBoothPackageService {
     guestBookPB: string,
     colorPB: string,
     indoorPB: string,
-    costPB: string,
+    costPB: number,
 
-    image: File, 
-    imageName: string
+    // image: string, // will be changed to file??
+    // imageName: string
   
   ): Observable<any> {
 
       const formData = new FormData();
-      formData.append('idPB', idPB);
-      formData.append('hoursPB', hoursPB);
+      // formData.append('idPB', idPB);
+      formData.append('hoursPB', hoursPB.toString());
       formData.append('propsPB', propsPB);
       formData.append('backdropsPB', backdropPB);
       formData.append('printsPB', printsPB);
@@ -66,14 +66,14 @@ export class CreatePhotoBoothPackageService {
       formData.append('guestBookPB', guestBookPB);
       formData.append('colorPB', colorPB);
       formData.append('indoorPB', indoorPB);
-      formData.append('costPB', colorPB);
+      formData.append('costPB', costPB.toString());
 
       // formData.append('value',value.toString());
       // formData.append('qty',qty.toString());
 
       // imageFile:  File | null = null;
 
-      formData.append('image', image, imageName);
+      // formData.append('image', image, imageName);
       
       return this.http.post(this.apiUrl02, formData)
       };
