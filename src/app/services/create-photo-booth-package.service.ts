@@ -7,14 +7,14 @@ const httpOptions = {
     "idPB" : "",
     "hoursPB" : "",
     "propsPB" : "",
-    "backdropPB" : "",
+    "backdropPB" : "black",
     "printsPB" : "",
     "layoutPB" : "",
     "usbPB" : "",
     "hostingPB" : "",
     "instantDigitalPB" : "",
     "guestBookPB" : "",
-    "colorPB" : "",
+    "colorPB" : "black",
     "indoorPB" : "",
     "costPB" : "",
   })
@@ -28,45 +28,45 @@ export class CreatePhotoBoothPackageService {
 
   constructor(private http: HttpClient) { }
 
-  createPBPackage2(post: any) {
+  
+
+  createPhotoBooth(post: any) {
     return this.http.post(this.apiUrl02, post, httpOptions);
   }
 
-  createPhotoBooth(
-
     // idPB: string,
-    hoursPB: number,
-    propsPB: string,
-    backdropPB: string,
-    printsPB: string,
-    layoutPB: string,
-    usbPB: string,
-    hostingPB: string,
-    instantDigitalPB: string,
-    guestBookPB: string,
-    colorPB: string,
-    indoorPB: string,
-    costPB: number,
+    // hoursPB: number,
+    // propsPB: string,
+    // backdropPB: string,
+    // printsPB: string,
+    // layoutPB: string,
+    // usbPB: string,
+    // hostingPB: string,
+    // instantDigitalPB: string,
+    // guestBookPB: string,
+    // colorPB: string,
+    // indoorPB: string,
+    // costPB: number,
 
     // image: string, // will be changed to file??
     // imageName: string
   
-  ): Observable<any> {
+  // ): Observable<any> {
 
-      const formData = new FormData();
+      // const formData = new FormData();
       // formData.append('idPB', idPB);
-      formData.append('hoursPB', hoursPB.toString());
-      formData.append('propsPB', propsPB);
-      formData.append('backdropsPB', backdropPB);
-      formData.append('printsPB', printsPB);
-      formData.append('layoutPB', layoutPB);
-      formData.append('usbPB', usbPB);
-      formData.append('hostingPB', hostingPB);
-      formData.append('instantDigitalPB', instantDigitalPB);
-      formData.append('guestBookPB', guestBookPB);
-      formData.append('colorPB', colorPB);
-      formData.append('indoorPB', indoorPB);
-      formData.append('costPB', costPB.toString());
+      // formData.append('hoursPB', hoursPB.toString());
+      // formData.append('propsPB', propsPB);
+      // formData.append('backdropsPB', backdropPB);
+      // formData.append('printsPB', printsPB);
+      // formData.append('layoutPB', layoutPB);
+      // formData.append('usbPB', usbPB);
+      // formData.append('hostingPB', hostingPB);
+      // formData.append('instantDigitalPB', instantDigitalPB);
+      // formData.append('guestBookPB', guestBookPB);
+      // formData.append('colorPB', colorPB);
+      // formData.append('indoorPB', indoorPB);
+      // formData.append('costPB', costPB.toString());
 
       // formData.append('value',value.toString());
       // formData.append('qty',qty.toString());
@@ -75,7 +75,7 @@ export class CreatePhotoBoothPackageService {
 
       // formData.append('image', image, imageName);
       
-      return this.http.post(this.apiUrl02, formData)
-      };
+      // return this.http.post(this.apiUrl02, formData)
+      
 
 }

@@ -1,4 +1,4 @@
-<form (ngSubmit)="addQuote()">
+
   <div class="container ">
     <div class="card mt-3 p-3 bg-card">
       <div class="row">
@@ -8,11 +8,11 @@
       </div>
       <div class="row mt-3 bg-card">
         <div class="col-md-2"><label>Hours Needed?</label>
-          <input class="form-control" [(ngModel)]="hoursPB" type="number" value="5">
+          <input class="form-control" [(ngModel)]="hoursPBx" name="hoursPB" type="number" value="5">
         </div>
   
         <div class="col-md-2"><label>Props?</label>
-          <select class="form-control" [(ngModel)]="propsPB" name="newPBProp">
+          <select class="form-control" [(ngModel)]="propsPBx" name="newPBProp">
             <option *ngFor="let prop of props">
               <p>
                 {{prop.nameProp}} ({{prop.pricePropAll | currency : '$' : "symbol" : '1.0-0' }})
@@ -26,7 +26,7 @@
         </div>
   
         <div class="col-md-2"><label>Backdrop?</label>
-          <select class="form-control" [(ngModel)]="backdropPB">
+          <select class="form-control" [(ngModel)]="backdropPBx" name="backdropPB">
             <option>Silver</option>
             <option>White</option>
             <option>Gold</option>
@@ -37,7 +37,7 @@
           </select>
         </div>
         <div class="col-md-2"><label>Prints or Digital?</label>
-          <select class="form-control" [(ngModel)]="printsPB">
+          <select class="form-control" [(ngModel)]="printsPBx" name="printsPB">
             <option>Digital Only</option>
             <option>Single Print</option>
             <option>Double Print</option>
@@ -52,58 +52,58 @@
             </select>
           </div> -->
         <div class="col-md-2"><label>Layout?</label>
-          <select class="form-control" [(ngModel)]="layoutPB">
+          <select class="form-control" [(ngModel)]="layoutPBx" name="layoutPB">
             <option>Classic Strip</option>
             <option>Landscape</option>
             <option>Portrait</option>
           </select>
         </div>
         <div class="col-md-2"><label>USB Stick?</label>
-          <select class="form-control" [(ngModel)]="usbPB">
+          <select class="form-control" [(ngModel)]="usbPBx" name="usbPB">
             <option>No</option>
             <option>Yes</option>
   
           </select>
         </div>
         <div class="col-md-2"><label>1-Year Online Hosting</label>
-          <select class="form-control" [(ngModel)]="hostingPB">
+          <select class="form-control" [(ngModel)]="hostingPBx" name="hostingPB">
             <option>Included Free</option>
             <option>No Online</option>
   
           </select>
         </div>
         <div class="col-md-2"><label>Instant Digital?</label>
-          <select class="form-control" [(ngModel)]="instantDigitalPB">
+          <select class="form-control" [(ngModel)]="instantDigitalPBx" name="instantDigitalPB">
             <option>No</option>
             <option>Instant Email</option>
             <option>Instant SMS</option>
           </select>
         </div>
         <div class="col-md-2"><label>Guest Book?</label>
-          <select class="form-control" [(ngModel)]="guestBookPB">
+          <select class="form-control" [(ngModel)]="guestBookPBx" name="guestBookPB">
             <option>No</option>
             <option>Yes</option>
           </select>
         </div>
         <div class="col-md-2"><label>Green Screen?</label>
-          <select class="form-control" [(ngModel)]="indoorPB">
+          <select class="form-control" [(ngModel)]="indoorPBx" name="indoorPB">
             <option>Indoor</option>
             <option>Outdoor</option>
           </select>
         </div>
         <div class="col-md-2"><label>Color or B/W Print?</label>
-          <select class="form-control" [(ngModel)]="colorPB">
+          <select class="form-control" [(ngModel)]="colorPBx" name="colorPB">
             <option>Color</option>
             <option>Black & White</option>
           </select>
         </div>
   
         <div class="col-md-2"><label>Cost:</label>
-          <input class="form-control" [(ngModel)]="costPB" type="number" value="5">
+          <input class="form-control" [(ngModel)]="costPBx" name="costPB" type="number" value="5">
         </div>
   
         <div class="col-md-2 mt-2">
-          <button class="btn btn-primary" (click)="addQuote()">ADD</button>
+    <button class="btn btn-primary" (click)="addQuote()">ADD</button>
         </div>
   
       </div>
@@ -152,7 +152,7 @@
           <td>{{quote.guestBookPB}}</td>
           <td>{{quote.colorPB}}</td>
           <td>{{quote.indoorPB}}</td>
-          <td><button class="btn btn-danger" (click)="deleteQuote(i)">DELETE</button></td>
+          <td><button class="btn btn-danger" type="button" (click)="deleteQuote(i)">DELETE</button></td>
           <!-- <button class="btn btn-primary" (click)="generatePDF2($event.target,i)">PDF</button> -->
           <!-- </li> -->
           <!-- </ul> -->
@@ -172,9 +172,9 @@
         <h4>Total Upgrade Costs: {{upgradeCosts}}</h4>
        <h4>Cost of Props: {{errorPB}}</h4>
         <h4></h4>
-        <h4>Total Cost: {{(costPerHour * hoursPB + upgradeCosts) | currency}}</h4>
-        <p>(Cost Per Hour: {{ ((costPerHour * hoursPB + upgradeCosts) / hoursPB | currency)}})</p>
-        <button class="btn btn-primary m-2" (click)="calculateTotal()">Update Quote</button>
+        <h4>Total Cost: {{(costPerHour * hoursPBx + upgradeCosts) | currency}}</h4>
+        <p>(Cost Per Hour: {{ ((costPerHour * hoursPBx + upgradeCosts) / hoursPBx | currency)}})</p>
+        <button class="btn btn-primary m-2" type="button" (click)="calculateTotal()">Update Quote</button>
       </div>
 
       <div class="col-md-4">
@@ -187,14 +187,14 @@
       <div class="col-md-4">
 
         <dl>
-          <dt>{{hoursPB}} Hour Photo Booth with {{printCost}}</dt>
-          <dd><span class="h6 ms-2">PROPS:</span>  {{propsPB}} Props ({{propCost | currency}})</dd>
-          <dd><span class="h6 ms-2">PROPS:</span> {{backdropPB}} Backdrop ({{backdropCost | currency}})</dd>
+          <dt>{{hoursPBx}} Hour Photo Booth with {{printCost}}</dt>
+          <dd><span class="h6 ms-2">PROPS:</span>  {{propsPBx}} Props ({{propCost | currency}})</dd>
+          <dd><span class="h6 ms-2">PROPS:</span> {{backdropPBx}} Backdrop ({{backdropCost | currency}})</dd>
           <!-- <dd> - {{newPBPrint}}</dd> -->
-          <dd><span class="h6 ms-2">PROPS:</span>  {{layoutPB}} with ({{layoutCost | currency}}) </dd>
-          <dd><span class="h6 ms-2">PROPS:</span> {{printsPB}} ({{printCost | currency}}) </dd>
-          <dd><span class="h6 ms-2">PROPS:</span> USB Stick? {{usbPB}} ({{usbCost | currency}}) </dd>
-          <dd><span class="h6 ms-2">Hosting:</span> -> {{hostingPB}} (Always Free) </dd>
+          <dd><span class="h6 ms-2">PROPS:</span>  {{layoutPBx}} with ({{layoutCost | currency}}) </dd>
+          <dd><span class="h6 ms-2">PROPS:</span> {{printsPBx}} ({{printCost | currency}}) </dd>
+          <dd><span class="h6 ms-2">PROPS:</span> USB Stick? {{usbPBx}} ({{usbCost | currency}}) </dd>
+          <dd><span class="h6 ms-2">Hosting:</span> -> {{hostingPBx}} (Always Free) </dd>
           <dd></dd>
         </dl>
       </div>
@@ -222,21 +222,22 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">{{hoursPB}}</th>
-        <td>{{propsPB}}</td>
-        <td>{{backdropPB}}</td>
-        <td>{{printsPB}}</td>
+        <th scope="row">{{hoursPBx}}</th>
+        <td>{{propsPBx}}</td>
+        <td>{{backdropPBx}}</td>
+        <td>{{printsPBx}}</td>
         <!-- <td>{{newPBSet}}</td> -->
-        <td>{{layoutPB}}</td>
-        <td>{{usbPB}}</td>
-        <td>{{hostingPB}}</td>
-        <td>{{instantDigitalPB}}</td>
-        <td>{{guestBookPB}}</td>
+        <td>{{layoutPBx}}</td>
+        <td>{{usbPBx}}</td>
+        <td>{{hostingPBx}}</td>
+        <td>{{instantDigitalPBx}}</td>
+        <td>{{guestBookPBx}}</td>
         <td>{{errorPB}}</td>
-        <td>{{colorPB}}</td>
-        <td>{{(costPerHour * hoursPB + upgradeCosts) | currency}}</td>
+        <td>{{colorPBx}}</td>
+        <td>{{(costPerHour * hoursPBx + upgradeCosts) | currency}}</td>
       </tr>
 
 
     </tbody>
   </table>
+  </div>

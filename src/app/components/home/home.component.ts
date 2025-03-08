@@ -14,6 +14,7 @@ export class HomeComponent {
     { name: 'Simple Quote', url: '/quote' },
     { name: 'Add Customer', url: '/addcustomer' },
     { name: 'Photo Booth', url: '/pb' },
-    { name: 'Disc Jockey', url: '/dj' }
+    { name: 'Disc Jockey', url: '/blog' },
+    { name: 'add Blog', url: '/addblog' }
   ];
 }

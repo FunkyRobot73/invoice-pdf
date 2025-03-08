@@ -16,7 +16,8 @@ export class NavbarComponent {
     { name: 'Simple Quote', url: '/quote' },
     { name: 'Add Customer', url: '/addcustomer' },
     { name: 'Photo Booth', url: '/pb' },
-    { name: 'Disc Jockey', url: '/dj' }
+    { name: 'Disc Jockey', url: '/dj' },
+    { name: 'Add Blog', url: '/blog' }
   ];
   
 }

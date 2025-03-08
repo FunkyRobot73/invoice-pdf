@@ -1,4 +1,5 @@
 import { Component, inject, OnInit, Pipe } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Photobooth } from '../../models/photobooth';
 import { CurrencyPipe, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -12,11 +13,24 @@ import { CreatePhotoBoothPackageService } from '../../services/create-photo-boot
 
 @Component({
   selector: 'app-pb-quote',
-  imports: [NgFor, FormsModule, CurrencyPipe],
+  imports: [CommonModule, NgFor, FormsModule, CurrencyPipe],
   templateUrl: './pb-quote.component.html',
   styleUrl: './pb-quote.component.css'
 })
-export class PbQuoteComponent implements OnInit{
+export class PbQuoteComponent {
+
+  hoursPBx: number = 3;
+  propsPBx: string = "";
+  backdropPBx: string = "";
+  printsPBx: string = "";
+  layoutPBx: string = "";
+  usbPBx: string = "";
+  hostingPBx: string = "";
+  instantDigitalPBx: string = "";
+  guestBookPBx: string = "";
+  colorPBx: string = "";
+  indoorPBx: string = "";
+  costPBx:number = 999
 
   errorPB = "FIX!!!"
 
@@ -27,17 +41,17 @@ export class PbQuoteComponent implements OnInit{
   props:Props[] = [];
   leftPhoto = "prop.jpg"
 
-  hoursPB: number = 2;
-  propsPB: string ="Standard";
-  backdropPB: string ="Silver";
-  printsPB: string ="Digital Only";
-  layoutPB: string ="Classic Strip";
-  usbPB: string ="No";
-  hostingPB: string ="Included Free";
-  instantDigitalPB: string ="No";
-  guestBookPB: string ="No";
-  colorPB: string ="Color";
-  indoorPB: string ="Indoor";
+  // hoursPB = 2;
+  // propsPB = "Standard";
+  // backdropPB = "Silver";
+  // printsPB = "Digital Only";
+  // layoutPB = "Classic Strip";
+  // usbPB = "No";
+  // hostingPB = "Included Free";
+  // instantDigitalPB = "No";
+  // guestBookPB = "No";
+  // colorPB = "Color";
+  // indoorPB = "Indoor";
 
   constructor() {
 
@@ -65,7 +79,7 @@ export class PbQuoteComponent implements OnInit{
   imageName: string ="";  
   
   
-  absoluteCost = (this.costPerHour * this.hoursPB + this.options);
+  absoluteCost = (this.costPerHour * this.hoursPBx + this.options);
 
   backdropCost = 0;
   propCost = 0;
@@ -79,23 +93,23 @@ export class PbQuoteComponent implements OnInit{
   createPBQuote = inject(CreatePhotoBoothPackageService)
   
   addQuote() {
-    this.createPBQuote.createPhotoBooth(
+    this.createPBQuote.createPhotoBooth({
      
-      this.hoursPB,
-      this.propsPB,
-      this.backdropPB,
-      this.printsPB,
-      this.layoutPB,
-      this.usbPB,
-      this.hostingPB,
-      this.instantDigitalPB,
-      this.guestBookPB,
-      this.colorPB,
-      this.indoorPB,
-      this.costPB
+      hoursPB : this.hoursPBx,
+      propsPB : this.propsPBx,
+      backdropPB : this.backdropPBx,
+      printsPB : this.printsPBx,
+      layoutPB : this.layoutPBx,
+      usbPB : this.usbPBx,
+      hostingPB : this.hostingPBx,
+      instantDigitalPB : this.instantDigitalPBx,
+      guestBookPB : this.guestBookPBx,
+      colorPB : this.colorPBx,
+      indoorPB : this.indoorPBx,
+      costPB : this.costPBx
       // this.imageFile,
       // this.imageName
-    ).subscribe({
+    }).subscribe({
       next: (data) => {
         console.log(data);
       },
@@ -135,7 +149,7 @@ export class PbQuoteComponent implements OnInit{
     let usbCost = 0;
 
 
-    switch (this.backdropPB.toLowerCase()) {
+    switch (this.backdropPBx.toLowerCase()) {
       case 'silver':
         backdropCost = 0;
         break;
@@ -149,7 +163,7 @@ export class PbQuoteComponent implements OnInit{
         backdropCost = 0; // No additional cost for invalid input
     }
     // Add backdrop costs based on text upgrade
-    switch (this.propsPB.toLowerCase()) {
+    switch (this.propsPBx.toLowerCase()) {
       case 'standard':
         propCost = 0;
         break;
@@ -167,7 +181,7 @@ export class PbQuoteComponent implements OnInit{
     }
 
     // Add Prints or Digital costs based on text upgrade
-    switch (this.printsPB.toLowerCase()) {
+    switch (this.printsPBx.toLowerCase()) {
       case 'digital only':
         printCost = 0;
         break;
@@ -187,7 +201,7 @@ export class PbQuoteComponent implements OnInit{
 
       
 
-      switch (this.layoutPB.toLowerCase()) {
+      switch (this.layoutPBx.toLowerCase()) {
         case 'classic strip':
           layoutCost = 0;
           break;
@@ -203,7 +217,7 @@ export class PbQuoteComponent implements OnInit{
           layoutCost = 0; // No additional cost for invalid input
       }
 
-      switch (this.usbPB.toLowerCase()) {
+      switch (this.usbPBx.toLowerCase()) {
         case 'no':
           usbCost = 0;
           break;
@@ -225,22 +239,20 @@ export class PbQuoteComponent implements OnInit{
       this.upgradeCosts =
       // this.costPerHour * this.newPBHour +
       backdropCost + propCost + printCost + layoutCost + usbCost; // Add upgrade cost
-      this.hoursPB = this.hoursPB
+      this.hoursPBx = this.hoursPBx
   }
 
   updateQuote() {
-    if (this.propsPB == "Yes") {
+    if (this.propsPBx == "Yes") {
       this.options = 1;
     }
     else {
       this.options = 0;
     }
-    this.absoluteCost = (this.costPerHour * this.hoursPB + this.options)
+    this.absoluteCost = (this.costPerHour * this.hoursPBx + this.options)
   }
     
-  ngOnInit(): void {
-
-  }
+  
   
 
   deleteQuote(index: number) {
