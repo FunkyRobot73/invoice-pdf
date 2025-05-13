@@ -41,8 +41,8 @@ const httpOptions = {
 export class AddCustService {
 constructor() { };
 
-  private apiUrl01 = "https://back.funkyrobot.ca/customer";
-  private apiUrl02 = "https://back.funkyrobot.ca/addcustomers";
+  private apiUrl01 = "https://back.funkyrobot.ca/customer2";
+  private apiUrl02 = "https://back.funkyrobot.ca/addcustomers2";
 
   http = inject(HttpClient);
 
@@ -59,12 +59,6 @@ constructor() { };
     return this.http.post(this.apiUrl02, post, httpOptions);
   }
 
-  createCustomer2(x:any) {
-
-    this.http.post("https://back.funkyrobot.ca/addcustomers", { name: x }).subscribe(data => {
-      console.log(data);
-    });
-
-  };
+  
 
 };
